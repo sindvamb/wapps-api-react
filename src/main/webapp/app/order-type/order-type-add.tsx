@@ -1,0 +1,59 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router';
+import { handleServerError, setYupDefaults } from 'app/common/utils';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { OrderTypeDTO } from 'app/order-type/order-type-model';
+import axios from 'axios';
+import InputRow from 'app/common/input-row/input-row';
+import useDocumentTitle from 'app/common/use-document-title';
+import * as yup from 'yup';
+
+
+function getSchema() {
+  setYupDefaults();
+  return yup.object({
+    code: yup.string().emptyToNull(),
+    description: yup.string().emptyToNull()
+  });
+}
+
+export default function OrderTypeAdd() {
+  const { t } = useTranslation();
+  useDocumentTitle(t('orderType.add.headline'));
+
+  const navigate = useNavigate();
+
+  const useFormResult = useForm({
+    resolver: yupResolver(getSchema()),
+  });
+
+  const createOrderType = async (data: OrderTypeDTO) => {
+    window.scrollTo(0, 0);
+    try {
+      await axios.post('/api/orderTypes', data);
+      navigate('/orderTypes', {
+            state: {
+              msgSuccess: t('orderType.create.success')
+            }
+          });
+    } catch (error: any) {
+      handleServerError(error, navigate, useFormResult.setError, t);
+    }
+  };
+
+  return (<>
+    <div className="flex flex-wrap mb-6">
+      <h1 className="grow text-3xl md:text-4xl font-medium mb-2">{t('orderType.add.headline')}</h1>
+      <div>
+        <Link to="/orderTypes" className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2">{t('orderType.add.back')}</Link>
+      </div>
+    </div>
+    <form onSubmit={useFormResult.handleSubmit(createOrderType)} noValidate>
+      <InputRow useFormResult={useFormResult} object="orderType" field="code" type="textarea" />
+      <InputRow useFormResult={useFormResult} object="orderType" field="description" type="textarea" />
+      <input type="submit" value={t('orderType.add.headline')} className="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 cursor-pointer mt-6" />
+    </form>
+  </>);
+}
