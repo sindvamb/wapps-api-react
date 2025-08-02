@@ -1,7 +1,7 @@
 package wastecnologia.wapps.api.domain;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.Entity; import jakarta.persistence.Table;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,7 +20,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
-@Entity
+@Entity @Table(schema = "sindvamb")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter

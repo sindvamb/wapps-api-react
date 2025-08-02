@@ -1,13 +1,26 @@
+import java.sql.DriverManager
+
+// Configura o classpath para incluir o driver JDBC do PostgreSQL
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.postgresql:postgresql:42.7.3'
+        classpath 'org.flywaydb:flyway-database-postgresql:11.1.0'
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '3.5.4'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'java'
     id 'com.github.node-gradle.node' version '7.1.0'
+    id 'org.flywaydb.flyway' version '11.1.0'
 }
 
 group = 'wastecnologia.wapps'
 version = '0.0.1-SNAPSHOT'
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -22,6 +35,37 @@ repositories {
     mavenCentral()
 }
 
+// Configuração do Flyway
+flyway {
+    // Configurações padrão
+    def dbHost = System.getenv('DB_HOST') ?: 'localhost'
+    def dbPort = System.getenv('DB_PORT') ?: '5432'
+    def dbName = System.getenv('DB_NAME') ?: 'sindvamb-api-db'
+    def dbUser = System.getenv('DB_USER') ?: 'postgres'
+    def dbPassword = System.getenv('DB_PASSWORD') ?: '1q2w3E*'
+    
+    // Configura a URL do banco de dados
+    url = "jdbc:postgresql://${dbHost}:${dbPort}/${dbName}"
+    user = dbUser
+    password = dbPassword
+    schemas = ['public']
+    locations = ['classpath:db/migration']
+    baselineOnMigrate = true
+    outOfOrder = false
+    validateOnMigrate = true
+    cleanOnValidationError = false
+    driver = 'org.postgresql.Driver'
+    
+    println """
+    ===== Configuração do Flyway =====
+    URL: $url
+    User: $user
+    Schema: $schemas
+    Locations: $locations
+    =================================
+    """.stripIndent()
+}
+
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-validation')
@@ -29,8 +73,11 @@ dependencies {
     runtimeOnly('org.postgresql:postgresql')
     implementation('io.github.wimdeblauwe:error-handling-spring-boot-starter:4.6.0')
     implementation('org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6')
-//    implementation('org.flywaydb:flyway-core')
-//    implementation('org.flywaydb:flyway-database-postgresql')
+    implementation('org.flywaydb:flyway-core:11.1.0')
+    implementation('org.flywaydb:flyway-database-postgresql:11.1.0')
+    
+    // Dependência para o driver JDBC do PostgreSQL (já incluído em runtimeOnly)
+    
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
     testCompileOnly('org.projectlombok:lombok')
@@ -64,3 +111,4 @@ processResources {
 tasks.withType(Test) {
     useJUnitPlatform()
 }
+
