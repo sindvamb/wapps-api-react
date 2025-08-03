@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Customer;
-import wastecnologia.wapps.api.domain.CustomerType;
-import wastecnologia.wapps.api.model.CustomerTypeDTO;
-import wastecnologia.wapps.api.repos.CustomerRepository;
-import wastecnologia.wapps.api.repos.CustomerTypeRepository;
+import wastecnologia.wapps.api.domain.entity.Customer;
+import wastecnologia.wapps.api.domain.entity.CustomerType;
+import wastecnologia.wapps.api.domain.dto.CustomerTypeDTO;
+import wastecnologia.wapps.api.repository.CustomerRepository;
+import wastecnologia.wapps.api.repository.CustomerTypeRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 import wastecnologia.wapps.api.util.ReferencedWarning;
 

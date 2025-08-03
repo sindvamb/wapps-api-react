@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Order;
-import wastecnologia.wapps.api.domain.OrderEmail;
-import wastecnologia.wapps.api.domain.Ticket;
-import wastecnologia.wapps.api.model.OrderEmailDTO;
-import wastecnologia.wapps.api.repos.OrderEmailRepository;
-import wastecnologia.wapps.api.repos.OrderRepository;
-import wastecnologia.wapps.api.repos.TicketRepository;
+import wastecnologia.wapps.api.domain.entity.Order;
+import wastecnologia.wapps.api.domain.entity.OrderEmail;
+import wastecnologia.wapps.api.domain.entity.Ticket;
+import wastecnologia.wapps.api.domain.dto.OrderEmailDTO;
+import wastecnologia.wapps.api.repository.OrderEmailRepository;
+import wastecnologia.wapps.api.repository.OrderRepository;
+import wastecnologia.wapps.api.repository.TicketRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EntityScan("wastecnologia.wapps.api.domain")
-@EnableJpaRepositories("wastecnologia.wapps.api.repos")
+@EnableJpaRepositories("wastecnologia.wapps.api.repository")
 @EnableTransactionManagement
 @EnableJpaAuditing(dateTimeProviderRef = "auditingDateTimeProvider")
 public class DomainConfig {

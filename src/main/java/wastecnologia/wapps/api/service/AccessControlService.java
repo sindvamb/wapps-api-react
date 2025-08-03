@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.AccessControl;
-import wastecnologia.wapps.api.model.AccessControlDTO;
-import wastecnologia.wapps.api.repos.AccessControlRepository;
+import wastecnologia.wapps.api.domain.entity.AccessControl;
+import wastecnologia.wapps.api.domain.dto.AccessControlDTO;
+import wastecnologia.wapps.api.repository.AccessControlRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

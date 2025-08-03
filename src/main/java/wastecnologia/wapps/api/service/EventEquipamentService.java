@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Company;
-import wastecnologia.wapps.api.domain.Equipament;
-import wastecnologia.wapps.api.domain.EventCustomer;
-import wastecnologia.wapps.api.domain.EventEquipament;
-import wastecnologia.wapps.api.model.EventEquipamentDTO;
-import wastecnologia.wapps.api.repos.CompanyRepository;
-import wastecnologia.wapps.api.repos.EquipamentRepository;
-import wastecnologia.wapps.api.repos.EventCustomerRepository;
-import wastecnologia.wapps.api.repos.EventEquipamentRepository;
+import wastecnologia.wapps.api.domain.entity.Company;
+import wastecnologia.wapps.api.domain.entity.Equipament;
+import wastecnologia.wapps.api.domain.entity.EventCustomer;
+import wastecnologia.wapps.api.domain.entity.EventEquipament;
+import wastecnologia.wapps.api.domain.dto.EventEquipamentDTO;
+import wastecnologia.wapps.api.repository.CompanyRepository;
+import wastecnologia.wapps.api.repository.EquipamentRepository;
+import wastecnologia.wapps.api.repository.EventCustomerRepository;
+import wastecnologia.wapps.api.repository.EventEquipamentRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.EmailHistory;
-import wastecnologia.wapps.api.model.EmailHistoryDTO;
-import wastecnologia.wapps.api.repos.EmailHistoryRepository;
+import wastecnologia.wapps.api.domain.entity.EmailHistory;
+import wastecnologia.wapps.api.domain.dto.EmailHistoryDTO;
+import wastecnologia.wapps.api.repository.EmailHistoryRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

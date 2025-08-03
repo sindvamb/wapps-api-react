@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.RegistrationRequest;
-import wastecnologia.wapps.api.domain.User;
-import wastecnologia.wapps.api.model.RegistrationRequestDTO;
-import wastecnologia.wapps.api.repos.RegistrationRequestRepository;
-import wastecnologia.wapps.api.repos.UserRepository;
+import wastecnologia.wapps.api.domain.entity.RegistrationRequest;
+import wastecnologia.wapps.api.domain.entity.User;
+import wastecnologia.wapps.api.domain.dto.RegistrationRequestDTO;
+import wastecnologia.wapps.api.repository.RegistrationRequestRepository;
+import wastecnologia.wapps.api.repository.UserRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

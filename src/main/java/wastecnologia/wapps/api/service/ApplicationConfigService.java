@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.ApplicationConfig;
-import wastecnologia.wapps.api.model.ApplicationConfigDTO;
-import wastecnologia.wapps.api.repos.ApplicationConfigRepository;
+import wastecnologia.wapps.api.domain.entity.ApplicationConfig;
+import wastecnologia.wapps.api.domain.dto.ApplicationConfigDTO;
+import wastecnologia.wapps.api.repository.ApplicationConfigRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

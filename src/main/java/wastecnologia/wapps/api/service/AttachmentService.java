@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Attachment;
-import wastecnologia.wapps.api.domain.Ticket;
-import wastecnologia.wapps.api.model.AttachmentDTO;
-import wastecnologia.wapps.api.repos.AttachmentRepository;
-import wastecnologia.wapps.api.repos.TicketRepository;
+import wastecnologia.wapps.api.domain.entity.Attachment;
+import wastecnologia.wapps.api.domain.entity.Ticket;
+import wastecnologia.wapps.api.domain.dto.AttachmentDTO;
+import wastecnologia.wapps.api.repository.AttachmentRepository;
+import wastecnologia.wapps.api.repository.TicketRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

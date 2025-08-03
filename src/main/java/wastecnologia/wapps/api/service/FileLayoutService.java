@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.FileControl;
-import wastecnologia.wapps.api.domain.FileLayout;
-import wastecnologia.wapps.api.model.FileLayoutDTO;
-import wastecnologia.wapps.api.repos.FileControlRepository;
-import wastecnologia.wapps.api.repos.FileLayoutRepository;
+import wastecnologia.wapps.api.domain.entity.FileControl;
+import wastecnologia.wapps.api.domain.entity.FileLayout;
+import wastecnologia.wapps.api.domain.dto.FileLayoutDTO;
+import wastecnologia.wapps.api.repository.FileControlRepository;
+import wastecnologia.wapps.api.repository.FileLayoutRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 import wastecnologia.wapps.api.util.ReferencedWarning;
 

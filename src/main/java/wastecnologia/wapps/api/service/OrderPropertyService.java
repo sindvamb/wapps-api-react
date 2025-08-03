@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Order;
-import wastecnologia.wapps.api.domain.OrderProperty;
-import wastecnologia.wapps.api.model.OrderPropertyDTO;
-import wastecnologia.wapps.api.repos.OrderPropertyRepository;
-import wastecnologia.wapps.api.repos.OrderRepository;
+import wastecnologia.wapps.api.domain.entity.Order;
+import wastecnologia.wapps.api.domain.entity.OrderProperty;
+import wastecnologia.wapps.api.domain.dto.OrderPropertyDTO;
+import wastecnologia.wapps.api.repository.OrderPropertyRepository;
+import wastecnologia.wapps.api.repository.OrderRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

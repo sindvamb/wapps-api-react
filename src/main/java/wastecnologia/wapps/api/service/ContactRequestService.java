@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Contact;
-import wastecnologia.wapps.api.domain.ContactRequest;
-import wastecnologia.wapps.api.model.ContactRequestDTO;
-import wastecnologia.wapps.api.repos.ContactRepository;
-import wastecnologia.wapps.api.repos.ContactRequestRepository;
+import wastecnologia.wapps.api.domain.entity.Contact;
+import wastecnologia.wapps.api.domain.entity.ContactRequest;
+import wastecnologia.wapps.api.domain.dto.ContactRequestDTO;
+import wastecnologia.wapps.api.repository.ContactRepository;
+import wastecnologia.wapps.api.repository.ContactRequestRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

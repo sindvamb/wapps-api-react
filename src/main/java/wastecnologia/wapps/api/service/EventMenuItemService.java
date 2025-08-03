@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Company;
-import wastecnologia.wapps.api.domain.EventMenuItem;
-import wastecnologia.wapps.api.domain.Menu;
-import wastecnologia.wapps.api.domain.MenuItem;
-import wastecnologia.wapps.api.model.EventMenuItemDTO;
-import wastecnologia.wapps.api.repos.CompanyRepository;
-import wastecnologia.wapps.api.repos.EventMenuItemRepository;
-import wastecnologia.wapps.api.repos.MenuItemRepository;
-import wastecnologia.wapps.api.repos.MenuRepository;
+import wastecnologia.wapps.api.domain.entity.Company;
+import wastecnologia.wapps.api.domain.entity.EventMenuItem;
+import wastecnologia.wapps.api.domain.entity.Menu;
+import wastecnologia.wapps.api.domain.entity.MenuItem;
+import wastecnologia.wapps.api.domain.dto.EventMenuItemDTO;
+import wastecnologia.wapps.api.repository.CompanyRepository;
+import wastecnologia.wapps.api.repository.EventMenuItemRepository;
+import wastecnologia.wapps.api.repository.MenuItemRepository;
+import wastecnologia.wapps.api.repository.MenuRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 

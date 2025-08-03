@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import wastecnologia.wapps.api.domain.Ticket;
-import wastecnologia.wapps.api.domain.TicketProperty;
-import wastecnologia.wapps.api.model.TicketPropertyDTO;
-import wastecnologia.wapps.api.repos.TicketPropertyRepository;
-import wastecnologia.wapps.api.repos.TicketRepository;
+import wastecnologia.wapps.api.domain.entity.Ticket;
+import wastecnologia.wapps.api.domain.entity.TicketProperty;
+import wastecnologia.wapps.api.domain.dto.TicketPropertyDTO;
+import wastecnologia.wapps.api.repository.TicketPropertyRepository;
+import wastecnologia.wapps.api.repository.TicketRepository;
 import wastecnologia.wapps.api.util.NotFoundException;
 
 
