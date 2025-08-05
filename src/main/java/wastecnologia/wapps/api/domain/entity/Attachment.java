@@ -36,22 +36,22 @@ public class Attachment {
     @Column(nullable = false, precision = 18, scale = 4)
     private BigDecimal size;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String contentType;
 
     @Column(nullable = false)
     private Boolean isPublic;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String path;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String absoluteUrl;
 
     @Column(nullable = false)

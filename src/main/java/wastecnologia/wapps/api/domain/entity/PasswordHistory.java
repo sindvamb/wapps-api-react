@@ -30,13 +30,13 @@ public class PasswordHistory {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String oldPassword;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String newPassword;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String securityCode;
 
     @Column(nullable = false)

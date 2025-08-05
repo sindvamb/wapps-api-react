@@ -37,67 +37,67 @@ public class User {
     @Column
     private Integer matricula;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "text")
+    
     private String socialName;
 
-    @Column(columnDefinition = "text")
+    
     private String surname;
 
-    @Column(columnDefinition = "text")
+    
     private String gender;
 
-    @Column(columnDefinition = "text")
+    
     private String birthplace;
 
-    @Column(columnDefinition = "text")
+    
     private String civilStatus;
 
-    @Column(columnDefinition = "text")
+    
     private String fatherName;
 
-    @Column(columnDefinition = "text")
+    
     private String motherName;
 
-    @Column(columnDefinition = "text")
+    
     private String nationality;
 
-    @Column(columnDefinition = "text")
+    
     private String rg;
 
-    @Column(columnDefinition = "text")
+    
     private String ufIssuingBody;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String cpfCnpj;
 
-    @Column(columnDefinition = "text")
+    
     private String email;
 
-    @Column(columnDefinition = "text")
+    
     private String password;
 
-    @Column(columnDefinition = "text")
+    
     private String race;
 
-    @Column(columnDefinition = "text")
+    
     private String profession;
 
-    @Column(columnDefinition = "text")
+    
     private String cellPhone;
 
-    @Column(columnDefinition = "text")
+    
     private String homePhone;
 
-    @Column(columnDefinition = "text")
+    
     private String businessPhone;
 
     @Column(nullable = false)
     private Boolean hasSpecialNeeds;
 
-    @Column(columnDefinition = "text")
+    
     private String specialNeedsOther;
 
     @Column(nullable = false)
@@ -106,7 +106,7 @@ public class User {
     @Column
     private Boolean isCustomer;
 
-    @Column(columnDefinition = "text")
+    
     private String securelyPhrase;
 
     @Column

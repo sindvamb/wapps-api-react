@@ -33,22 +33,22 @@ public class EmailHistory {
     @Column(nullable = false)
     private Boolean isSuccess;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String reason;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String templateKey;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String data;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String ipAddress;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String messageId;
 
     @Column(nullable = false)

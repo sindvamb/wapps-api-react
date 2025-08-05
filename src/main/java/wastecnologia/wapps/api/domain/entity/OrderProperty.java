@@ -36,7 +36,7 @@ public class OrderProperty {
     @Column(name = "key", nullable = false, unique = true)
     private String key;
 
-    @Column(columnDefinition = "text")
+    
     private String value;
 
     @ManyToOne(fetch = FetchType.LAZY)

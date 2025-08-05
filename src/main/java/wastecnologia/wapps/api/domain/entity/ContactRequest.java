@@ -31,16 +31,16 @@ public class ContactRequest {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String subject;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String profile;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String message;
 
-    @Column(columnDefinition = "text")
+    
     private String response;
 
     @Column(nullable = false)

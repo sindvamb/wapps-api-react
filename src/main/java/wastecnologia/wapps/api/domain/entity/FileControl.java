@@ -36,7 +36,7 @@ public class FileControl {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String fileName;
 
     @Column(nullable = false, precision = 18, scale = 4)
@@ -46,13 +46,13 @@ public class FileControl {
     @Column(nullable = false, columnDefinition = "BLOB")
     private byte[] fileArray;
 
-    @Column(columnDefinition = "text")
+    
     private String targetPath;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String contentType;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
     @Column

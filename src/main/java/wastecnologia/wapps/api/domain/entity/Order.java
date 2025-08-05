@@ -34,13 +34,13 @@ public class Order {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
-    @Column(columnDefinition = "text")
+    
     private String sigla;
 
-    @Column(columnDefinition = "text")
+    
     private String protocol;
 
     @Column

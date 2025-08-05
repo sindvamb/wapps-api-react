@@ -36,31 +36,31 @@ public class Company {
     @Column
     private OffsetDateTime foundationDate;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String cpfCnpj;
 
     @Column(nullable = false)
     private Integer size;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String corporateName;
 
-    @Column(columnDefinition = "text")
+    
     private String stateRegistration;
 
-    @Column(columnDefinition = "text")
+    
     private String municipalRegistration;
 
-    @Column(columnDefinition = "text")
+    
     private String mainCnaeCode;
 
-    @Column(columnDefinition = "text")
+    
     private String mainCnaeDescription;
 
-    @Column(columnDefinition = "text")
+    
     private String legalNatureCode;
 
-    @Column(columnDefinition = "text")
+    
     private String legalNatureDescription;
 
     @Column(nullable = false)
@@ -72,7 +72,7 @@ public class Company {
     @Column(nullable = false)
     private Boolean hasDigitalCertificate;
 
-    @Column(columnDefinition = "text")
+    
     private String tradeName;
 
     @Column(nullable = false)
@@ -87,10 +87,10 @@ public class Company {
     @Column(nullable = false)
     private Boolean hasVisualIdentity;
 
-    @Column(columnDefinition = "text")
+    
     private String inpiRegistration;
 
-    @Column(columnDefinition = "text")
+    
     private String businessLaw;
 
     @Column
@@ -99,22 +99,22 @@ public class Company {
     @Column
     private Integer youngApprenticesCount;
 
-    @Column(columnDefinition = "text")
+    
     private String sebraeTraining;
 
-    @Column(columnDefinition = "text")
+    
     private String senacTraining;
 
-    @Column(columnDefinition = "text")
+    
     private String anvisaTraining;
 
-    @Column(columnDefinition = "text")
+    
     private String civilDefenseTraining;
 
-    @Column(columnDefinition = "text")
+    
     private String website;
 
-    @Column(columnDefinition = "text")
+    
     private String email;
 
     @Column

@@ -33,22 +33,22 @@ public class MenuItem {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
-    @Column(columnDefinition = "text")
+    
     private String quantity;
 
-    @Column(columnDefinition = "text")
+    
     private String type;
 
-    @Column(columnDefinition = "text")
+    
     private String gramish;
 
-    @Column(columnDefinition = "text")
+    
     private String measuredUnit;
 
     @OneToMany(mappedBy = "menuItem")

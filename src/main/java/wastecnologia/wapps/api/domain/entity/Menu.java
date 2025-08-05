@@ -33,10 +33,10 @@ public class Menu {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
     @OneToMany(mappedBy = "menu")

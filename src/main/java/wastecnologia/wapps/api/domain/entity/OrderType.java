@@ -30,10 +30,10 @@ public class OrderType {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String code;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
     @OneToMany(mappedBy = "orderType")

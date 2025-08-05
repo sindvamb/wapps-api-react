@@ -30,25 +30,25 @@ public class CompanyContact {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String area;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String role;
 
-    @Column(columnDefinition = "text")
+    
     private String corporateEmail;
 
-    @Column(columnDefinition = "text")
+    
     private String phone;
 
-    @Column(columnDefinition = "text")
+    
     private String corporateCellPhone;
 
-    @Column(columnDefinition = "text")
+    
     private String personalCellPhone;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -33,19 +33,19 @@ public class Equipament {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
-    @Column(columnDefinition = "text")
+    
     private String voltage;
 
-    @Column(columnDefinition = "text")
+    
     private String type;
 
-    @Column(columnDefinition = "text")
+    
     private String weight;
 
     @Column

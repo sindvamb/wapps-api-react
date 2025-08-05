@@ -33,10 +33,10 @@ public class LoginHistory {
     @Column(nullable = false)
     private Boolean isSuccess;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String reason;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String ipAddress;
 
     @Column(nullable = false)

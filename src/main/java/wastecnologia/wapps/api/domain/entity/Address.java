@@ -32,34 +32,34 @@ public class Address {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String zipCode;
 
-    @Column(columnDefinition = "text")
+    
     private String neighborhood;
 
-    @Column(columnDefinition = "text")
+    
     private String addressLine1;
 
-    @Column(columnDefinition = "text")
+    
     private String addressLine2;
 
-    @Column(columnDefinition = "text")
+    
     private String complement;
 
     @Column
     private Long number;
 
-    @Column(columnDefinition = "text")
+    
     private String city;
 
-    @Column(columnDefinition = "text")
+    
     private String district;
 
-    @Column(columnDefinition = "text")
+    
     private String uf;
 
-    @Column(columnDefinition = "text")
+    
     private String housing;
 
     @OneToMany(mappedBy = "address")

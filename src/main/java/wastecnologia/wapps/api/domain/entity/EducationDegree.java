@@ -30,10 +30,10 @@ public class EducationDegree {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String code;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "educationDegree")

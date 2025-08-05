@@ -30,7 +30,7 @@ public class Role {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String value;
 
     /**
@@ -39,7 +39,7 @@ public class Role {
     @Column(name = "key", nullable = false, unique = true)
     private String key;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "role")

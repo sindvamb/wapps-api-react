@@ -30,10 +30,10 @@ public class TicketStatus {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String code;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
     @OneToMany(mappedBy = "ticketStatus")

@@ -33,10 +33,10 @@ public class RegistrationRequest {
     @Column
     private Boolean approved;
 
-    @Column(columnDefinition = "text")
+    
     private String reason;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String protocol;
 
     @Column(nullable = false)

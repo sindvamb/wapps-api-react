@@ -33,13 +33,13 @@ public class PartnerUnit {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String name;
 
-    @Column(columnDefinition = "text")
+    
     private String cpfCnpj;
 
-    @Column(columnDefinition = "text")
+    
     private String email;
 
     @Column

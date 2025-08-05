@@ -33,19 +33,19 @@ public class Employee {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String cpfCnpj;
 
-    @Column(columnDefinition = "text")
+    
     private String description;
 
-    @Column(columnDefinition = "text")
+    
     private String cellPhone;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String position;
 
     @Column(nullable = false)
@@ -54,7 +54,7 @@ public class Employee {
     @Column
     private UUID customerId;
 
-    @Column(columnDefinition = "text")
+    
     private String address;
 
     @ManyToOne(fetch = FetchType.LAZY)

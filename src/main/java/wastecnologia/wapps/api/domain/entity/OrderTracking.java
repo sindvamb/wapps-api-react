@@ -33,7 +33,7 @@ public class OrderTracking {
     @Column(nullable = false)
     private OffsetDateTime trackDate;
 
-    @Column(columnDefinition = "text")
+    
     private String history;
 
     @ManyToOne(fetch = FetchType.LAZY)

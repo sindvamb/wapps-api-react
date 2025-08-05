@@ -32,31 +32,31 @@ public class Event {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String placeRealization;
 
-    @Column(columnDefinition = "text")
+    
     private String address;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String description;
 
-    @Column(columnDefinition = "text")
+    
     private String eventType;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String uf;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String programing;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String assemblyInstructions;
 
     @Column

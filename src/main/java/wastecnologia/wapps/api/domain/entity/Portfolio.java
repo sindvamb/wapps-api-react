@@ -33,10 +33,10 @@ public class Portfolio {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String title;
 
-    @Column(columnDefinition = "text")
+    
     private String filePath;
 
     @Column

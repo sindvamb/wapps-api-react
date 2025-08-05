@@ -33,7 +33,7 @@ public class Ticket {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String solution;
 
     @Column(nullable = false)

@@ -30,19 +30,19 @@ public class Audit {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String tableName;
 
-    @Column(columnDefinition = "text")
+    
     private String keyValues;
 
-    @Column(columnDefinition = "text")
+    
     private String oldValues;
 
-    @Column(columnDefinition = "text")
+    
     private String newValues;
 
-    @Column(columnDefinition = "text")
+    
     private String ipAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)

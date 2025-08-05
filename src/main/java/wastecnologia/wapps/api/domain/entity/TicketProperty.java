@@ -30,7 +30,7 @@ public class TicketProperty {
     @UuidGenerator
     private UUID id;
 
-    @Column(columnDefinition = "text")
+    
     private String value;
 
     /**

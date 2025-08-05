@@ -33,7 +33,7 @@ public class EventCustomer {
     @UuidGenerator
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "text")
+    @Column(nullable = false)
     private String type;
 
     @Column
