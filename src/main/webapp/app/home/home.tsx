@@ -20,7 +20,6 @@ export default function Home() {
     <div className="md:w-2/5 mb-12">
       <h4 className="text-2xl font-medium mb-4">{t('home.index.exploreEntities')}</h4>
       <div className="flex flex-col border border-gray-300 rounded">
-        <Link to="/efmigrationsHistories" className="w-full border-gray-300 hover:bg-gray-100 border-b rounded-t px-4 py-2">{t('efmigrationsHistory.list.headline')}</Link>
         <Link to="/accessControls" className="w-full border-gray-300 hover:bg-gray-100 border-b px-4 py-2">{t('accessControl.list.headline')}</Link>
         <Link to="/addresses" className="w-full border-gray-300 hover:bg-gray-100 border-b px-4 py-2">{t('address.list.headline')}</Link>
         <Link to="/applicationConfigs" className="w-full border-gray-300 hover:bg-gray-100 border-b px-4 py-2">{t('applicationConfig.list.headline')}</Link>

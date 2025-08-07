@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 import axios from 'axios';
-import translation from './translation.json';
+import translation from './translation.en.json';
+import translationPt from './translation.json';
 import AppRoutes from './app/routes';
 import './index.css';
 
@@ -12,9 +13,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: translation },
+        en: { translation: translation },
+        pt: { translation: translationPt },
     },
-    lng: 'en',
+    lng: 'pt',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false

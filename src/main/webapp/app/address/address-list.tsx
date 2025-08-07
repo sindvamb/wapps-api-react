@@ -75,7 +75,7 @@ export default function AddressList() {
         <tbody className="border-t-2 border-black">
           {addresses.map((address) => (
           <tr key={address.id} className="odd:bg-gray-100">
-            <td className="p-2">{address.id}</td>
+            <td className="p-2">{address.addressLine1}</td>
             <td className="p-2">{address.number}</td>
             <td className="p-2">
               <div className="float-right whitespace-nowrap">

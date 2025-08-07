@@ -138,7 +138,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleCollapse }) => {
     `}>
       <div className="flex flex-col h-full">
         {/* Cabeçalho da Sidebar */}
-        <div className="flex items-center justify-between p-4 border-b">
+        <div className="flex items-center justify-between p-4">
           {!isCollapsed && (
             <h2 className="text-xl font-semibold text-gray-800">Menu</h2>
           )}
@@ -192,7 +192,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleCollapse }) => {
 
                 {(!isCollapsed || isGroupExpanded) && (
                   <div className="ml-4 mt-1 space-y-1">
-                    {group.items.map((item) => (
+                    {group.items?.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
@@ -210,6 +210,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleCollapse }) => {
               </div>
             );
           })}
+
         </nav>
       </div>
     </div>

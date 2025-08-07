@@ -3,431 +3,409 @@
     "title": "Api"
   },
   "navigation": {
-    "toggle": "Toggle navigation",
-    "home": "Home",
-    "entities": "Entities"
+    "toggle": "Alternar navegação",
+    "home": "Início",
+    "entities": "Entidades",
+    "groups": {
+      "administration": "Administraçãoo",
+      "customers": "Cliente",
+      "companies": "Empresas",
+      "contacts": "Contatos",
+      "events": "Eventos",
+      "orders": "Vendas",
+      "products": "Produtos",
+      "others": "Outros"
+    }
   },
   "home": {
     "index": {
-      "headline": "Welcome to your new app!",
-      "text": "Your app was created with <a href=\"https://bootify.io\" target=\"_blank\" className=\"underline\">Bootify.io</a> and can now be customized. If you are happy with the result, <strong>please recommend us to other developers</strong> - so Bootify.io can grow further.",
+      "headline": "Bem-vindo ao seu novo aplicativo!",
+      "text": "Seu aplicativo foi criado com <a href=\"https://bootify.io\" target=\"_blank\" className=\"underline\">Bootify.io</a> e agora pode ser personalizado. Se você está satisfeito com o resultado, <strong>por favor, nos recomende para outros desenvolvedores</strong> - assim o Bootify.io pode crescer ainda mais.",
       "swagger": {
-        "text": "Swagger is",
-        "link": "available here"
+        "text": "O Swagger está",
+        "link": "disponível aqui"
       },
-      "exploreEntities": "Explore your entities"
+      "exploreEntities": "Explore suas entidades"
     }
   },
   "error": {
     "page": {
-      "headline": "Error",
-      "message": "The page you are looking for is not available right now."
-    }
-  },
-  "efmigrationsHistory": {
-    "list": {
-      "headline": "Efmigrations Histories",
-      "createNew": "Create new Efmigrations History",
-      "empty": "No Efmigrations Histories could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
-    },
-    "add": {
-      "headline": "Add Efmigrations History",
-      "back": "Back to list"
-    },
-    "migrationId": {
-      "label": "Migration Id"
-    },
-    "productVersion": {
-      "label": "Product Version"
-    },
-    "edit": {
-      "headline": "Edit Efmigrations History",
-      "back": "Back to list"
-    },
-    "create": {
-      "success": "Efmigrations History was created successfully."
-    },
-    "update": {
-      "success": "Efmigrations History was updated successfully."
-    },
-    "delete": {
-      "success": "Efmigrations History was removed successfully."
+      "headline": "Erro",
+      "message": "A página que você está procurando não está disponível no momento."
     }
   },
   "accessControl": {
     "list": {
-      "headline": "Access Controls",
-      "createNew": "Create new Access Control",
-      "empty": "No Access Controls could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Controles de Acesso",
+      "createNew": "Criar novo Controle de Acesso",
+      "empty": "Nenhum Controle de Acesso encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Access Control",
-      "back": "Back to list"
+      "headline": "Adicionar Controle de Acesso",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "userId": {
-      "label": "User Id"
+      "label": "ID do Usuário"
     },
     "userName": {
-      "label": "User Name"
+      "label": "Nome do Usuário"
     },
     "connectionTime": {
-      "label": "Connection Time"
+      "label": "Tempo de Conexão"
     },
     "lastBeatTime": {
-      "label": "Last Beat Time"
+      "label": "Última Atividade"
     },
     "dur": {
-      "label": "Dur"
+      "label": "Duração"
     },
     "ip": {
-      "label": "Ip"
+      "label": "IP"
     },
     "city": {
-      "label": "City"
+      "label": "Cidade"
     },
     "os": {
-      "label": "Os"
+      "label": "Sistema Operacional"
     },
     "device": {
-      "label": "Device"
+      "label": "Dispositivo"
     },
     "browser": {
-      "label": "Browser"
+      "label": "Navegador"
     },
     "language": {
-      "label": "Language"
+      "label": "Idioma"
     },
     "engine": {
-      "label": "Engine"
+      "label": "Motor de Renderização"
     },
     "requestUrl": {
-      "label": "Request Url"
+      "label": "URL da Requisição"
     },
     "edit": {
-      "headline": "Edit Access Control",
-      "back": "Back to list"
+      "headline": "Editar Controle de Acesso",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Access Control was created successfully."
+      "success": "Controle de Acesso criado com sucesso."
     },
     "update": {
-      "success": "Access Control was updated successfully."
+      "success": "Controle de Acesso atualizado com sucesso."
     },
     "delete": {
-      "success": "Access Control was removed successfully."
+      "success": "Controle de Acesso removido com sucesso."
     }
   },
   "address": {
     "list": {
-      "headline": "Addresses",
-      "createNew": "Create new Address",
-      "empty": "No Addresses could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Endereços",
+      "createNew": "Criar novo Endereço",
+      "empty": "Nenhum Endereço encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Address",
-      "back": "Back to list"
+      "headline": "Adicionar Endereço",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "zipCode": {
-      "label": "Zip Code"
+      "label": "CEP"
     },
     "neighborhood": {
-      "label": "Neighborhood"
+      "label": "Bairro"
     },
     "addressLine1": {
-      "label": "Address Line1"
+      "label": "Endereço Linha 1"
     },
     "addressLine2": {
-      "label": "Address Line2"
+      "label": "Endereço Linha 2"
     },
     "complement": {
-      "label": "Complement"
+      "label": "Complemento"
     },
     "number": {
-      "label": "Number"
+      "label": "Número"
     },
     "city": {
-      "label": "City"
+      "label": "Cidade"
     },
     "district": {
-      "label": "District"
+      "label": "Distrito"
     },
     "uf": {
-      "label": "Uf"
+      "label": "UF"
     },
     "housing": {
-      "label": "Housing"
+      "label": "Tipo de Residência"
     },
     "edit": {
-      "headline": "Edit Address",
-      "back": "Back to list"
+      "headline": "Editar Endereço",
+      "back": "Voltar para a lista"
     },
     "company": {
       "address": {
-        "referenced": "This entity is still referenced by Company {{id}} via field Address."
+        "referenced": "Esta entidade ainda está referenciada pela Empresa {{id}} no campo Endereço."
       }
     },
     "contact": {
       "address": {
-        "referenced": "This entity is still referenced by Contact {{id}} via field Address."
+        "referenced": "Esta entidade ainda está referenciada pelo Contato {{id}} no campo Endereço."
       }
     },
     "user": {
       "address": {
-        "referenced": "This entity is still referenced by User {{id}} via field Address."
+        "referenced": "Esta entidade ainda está referenciada pelo Usuário {{id}} no campo Endereço."
       }
     },
     "create": {
-      "success": "Address was created successfully."
+      "success": "Endereço criado com sucesso."
     },
     "update": {
-      "success": "Address was updated successfully."
+      "success": "Endereço atualizado com sucesso."
     },
     "delete": {
-      "success": "Address was removed successfully."
+      "success": "Endereço removido com sucesso."
     }
   },
   "applicationConfig": {
     "list": {
-      "headline": "Application Configs",
-      "createNew": "Create new Application Config",
-      "empty": "No Application Configs could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Configurações do Aplicativo",
+      "createNew": "Criar nova Configuração",
+      "empty": "Nenhuma Configuração encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Application Config",
-      "back": "Back to list"
+      "headline": "Adicionar Configuração",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "value": {
-      "label": "Value"
+      "label": "Valor"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído em"
     },
     "edit": {
-      "headline": "Edit Application Config",
-      "back": "Back to list"
+      "headline": "Editar Configuração",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Application Config was created successfully."
+      "success": "Configuração criada com sucesso."
     },
     "update": {
-      "success": "Application Config was updated successfully."
+      "success": "Configuração atualizada com sucesso."
     },
     "delete": {
-      "success": "Application Config was removed successfully."
+      "success": "Configuração removida com sucesso."
     }
   },
   "attachment": {
     "list": {
-      "headline": "Attachments",
-      "createNew": "Create new Attachment",
-      "empty": "No Attachments could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Anexos",
+      "createNew": "Criar novo Anexo",
+      "empty": "Nenhum Anexo encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Attachment",
-      "back": "Back to list"
+      "headline": "Adicionar Anexo",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "size": {
-      "label": "Size"
+      "label": "Tamanho"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "contentType": {
-      "label": "Content Type"
+      "label": "Tipo de Conteúdo"
     },
     "isPublic": {
-      "label": "Is Public"
+      "label": "Público?"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "path": {
-      "label": "Path"
+      "label": "Caminho"
     },
     "absoluteUrl": {
-      "label": "Absolute Url"
+      "label": "URL Absoluta"
     },
     "inCloud": {
-      "label": "In Cloud"
+      "label": "Na Nuvem"
     },
     "fileData": {
-      "label": "File Data"
+      "label": "Dados do Arquivo"
     },
     "ticket": {
       "label": "Ticket"
     },
     "edit": {
-      "headline": "Edit Attachment",
-      "back": "Back to list"
+      "headline": "Editar Anexo",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Attachment was created successfully."
+      "success": "Anexo criado com sucesso."
     },
     "update": {
-      "success": "Attachment was updated successfully."
+      "success": "Anexo atualizado com sucesso."
     },
     "delete": {
-      "success": "Attachment was removed successfully."
+      "success": "Anexo removido com sucesso."
     }
   },
   "audit": {
     "list": {
-      "headline": "Audits",
-      "createNew": "Create new Audit",
-      "empty": "No Audits could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Auditorias",
+      "createNew": "Criar nova Auditoria",
+      "empty": "Nenhuma Auditoria encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Audit",
-      "back": "Back to list"
+      "headline": "Adicionar Auditoria",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "tableName": {
-      "label": "Table Name"
+      "label": "Nome da Tabela"
     },
     "keyValues": {
-      "label": "Key Values"
+      "label": "Valores Chave"
     },
     "oldValues": {
-      "label": "Old Values"
+      "label": "Valores Antigos"
     },
     "newValues": {
-      "label": "New Values"
+      "label": "Novos Valores"
     },
     "ipAddress": {
-      "label": "Ip Address"
+      "label": "Endereço IP"
     },
     "user": {
-      "label": "User"
+      "label": "Usuário"
     },
     "edit": {
-      "headline": "Edit Audit",
-      "back": "Back to list"
+      "headline": "Editar Auditoria",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Audit was created successfully."
+      "success": "Auditoria criada com sucesso."
     },
     "update": {
-      "success": "Audit was updated successfully."
+      "success": "Auditoria atualizada com sucesso."
     },
     "delete": {
-      "success": "Audit was removed successfully."
+      "success": "Auditoria removida com sucesso."
     }
   },
   "company": {
     "list": {
-      "headline": "Companies",
-      "createNew": "Create new Company",
-      "empty": "No Companies could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Empresas",
+      "createNew": "Criar nova Empresa",
+      "empty": "Nenhuma Empresa encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Company",
-      "back": "Back to list"
+      "headline": "Adicionar Empresa",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "foundationDate": {
-      "label": "Foundation Date"
+      "label": "Data de Fundação"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "size": {
-      "label": "Size"
+      "label": "Porte"
     },
     "corporateName": {
-      "label": "Corporate Name"
+      "label": "Razão Social"
     },
     "stateRegistration": {
-      "label": "State Registration"
+      "label": "Inscrição Estadual"
     },
     "municipalRegistration": {
-      "label": "Municipal Registration"
+      "label": "Inscrição Municipal"
     },
     "mainCnaeCode": {
-      "label": "Main Cnae Code"
+      "label": "Código CNAE Principal"
     },
     "mainCnaeDescription": {
-      "label": "Main Cnae Description"
+      "label": "Descrição do CNAE Principal"
     },
     "legalNatureCode": {
-      "label": "Legal Nature Code"
+      "label": "Código da Natureza Jurídica"
     },
     "legalNatureDescription": {
-      "label": "Legal Nature Description"
+      "label": "Descrição da Natureza Jurídica"
     },
     "status": {
       "label": "Status"
     },
     "hasGovBrRegistration": {
-      "label": "Has Gov Br Registration"
+      "label": "Possui Cadastro Gov.br"
     },
     "hasDigitalCertificate": {
-      "label": "Has Digital Certificate"
+      "label": "Possui Certificado Digital"
     },
     "tradeName": {
-      "label": "Trade Name"
+      "label": "Nome Fantasia"
     },
     "hasLogo": {
-      "label": "Has Logo"
+      "label": "Possui Logo"
     },
     "hasVisualIdentity": {
-      "label": "Has Visual Identity"
+      "label": "Possui Identidade Visual"
     },
     "inpiRegistration": {
-      "label": "Inpi Registration"
+      "label": "Registro INPI"
     },
     "businessLaw": {
-      "label": "Business Law"
+      "label": "Regime Tributário"
     },
     "employeesCount": {
       "label": "Employees Count"
@@ -557,425 +535,425 @@
   },
   "companyContact": {
     "list": {
-      "headline": "Company Contacts",
-      "createNew": "Create new Company Contact",
-      "empty": "No Company Contacts could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Contatos da Empresa",
+      "createNew": "Criar novo Contato da Empresa",
+      "empty": "Nenhum Contato da Empresa encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Company Contact",
-      "back": "Back to list"
+      "headline": "Adicionar Contato da Empresa",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "area": {
-      "label": "Area"
+      "label": "Área"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "role": {
-      "label": "Role"
+      "label": "Cargo"
     },
     "corporateEmail": {
-      "label": "Corporate Email"
+      "label": "E-mail Corporativo"
     },
     "phone": {
-      "label": "Phone"
+      "label": "Telefone"
     },
     "corporateCellPhone": {
-      "label": "Corporate Cell Phone"
+      "label": "Celular Corporativo"
     },
     "personalCellPhone": {
-      "label": "Personal Cell Phone"
+      "label": "Celular Pessoal"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "edit": {
-      "headline": "Edit Company Contact",
-      "back": "Back to list"
+      "headline": "Editar Contato da Empresa",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Company Contact was created successfully."
+      "success": "Contato da Empresa criado com sucesso."
     },
     "update": {
-      "success": "Company Contact was updated successfully."
+      "success": "Contato da Empresa atualizado com sucesso."
     },
     "delete": {
-      "success": "Company Contact was removed successfully."
+      "success": "Contato da Empresa removido com sucesso."
     }
   },
   "contact": {
     "list": {
-      "headline": "Contacts",
-      "createNew": "Create new Contact",
-      "empty": "No Contacts could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Contatos",
+      "createNew": "Criar novo Contato",
+      "empty": "Nenhum Contato encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Contact",
-      "back": "Back to list"
+      "headline": "Adicionar Contato",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "email": {
-      "label": "Email"
+      "label": "E-mail"
     },
     "phone": {
-      "label": "Phone"
+      "label": "Telefone"
     },
     "cellPhone": {
-      "label": "Cell Phone"
+      "label": "Celular"
     },
     "fax": {
       "label": "Fax"
     },
     "mainActivityCode": {
-      "label": "Main Activity Code"
+      "label": "Código da Atividade Principal"
     },
     "economicActivity": {
-      "label": "Economic Activity"
+      "label": "Atividade Econômica"
     },
     "address": {
-      "label": "Address"
+      "label": "Endereço"
     },
     "edit": {
-      "headline": "Edit Contact",
-      "back": "Back to list"
+      "headline": "Editar Contato",
+      "back": "Voltar para a lista"
     },
     "contactRequest": {
       "contact": {
-        "referenced": "This entity is still referenced by Contact Request {{id}} via field Contact."
+        "referenced": "Este contato ainda está referenciado pela Solicitação de Contato {{id}} através do campo Contato."
       }
     },
     "create": {
-      "success": "Contact was created successfully."
+      "success": "Contato criado com sucesso."
     },
     "update": {
-      "success": "Contact was updated successfully."
+      "success": "Contato atualizado com sucesso."
     },
     "delete": {
-      "success": "Contact was removed successfully."
+      "success": "Contato removido com sucesso."
     }
   },
   "contactRequest": {
     "list": {
-      "headline": "Contact Requests",
-      "createNew": "Create new Contact Request",
-      "empty": "No Contact Requests could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Solicitações de Contato",
+      "createNew": "Criar nova Solicitação de Contato",
+      "empty": "Nenhuma Solicitação de Contato encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Contact Request",
-      "back": "Back to list"
+      "headline": "Adicionar Solicitação de Contato",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "subject": {
-      "label": "Subject"
+      "label": "Assunto"
     },
     "profile": {
-      "label": "Profile"
+      "label": "Perfil"
     },
     "message": {
-      "label": "Message"
+      "label": "Mensagem"
     },
     "response": {
-      "label": "Response"
+      "label": "Resposta"
     },
     "hasViewd": {
-      "label": "Has Viewd"
+      "label": "Visualizado"
     },
     "hasAnswered": {
-      "label": "Has Answered"
+      "label": "Respondido"
     },
     "hasPendding": {
-      "label": "Has Pendding"
+      "label": "Pendente"
     },
     "answeredDate": {
-      "label": "Answered Date"
+      "label": "Data da Resposta"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado Em"
     },
     "contact": {
-      "label": "Contact"
+      "label": "Contato"
     },
     "edit": {
-      "headline": "Edit Contact Request",
-      "back": "Back to list"
+      "headline": "Editar Solicitação de Contato",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Contact Request was created successfully."
+      "success": "Solicitação de Contato criada com sucesso."
     },
     "update": {
-      "success": "Contact Request was updated successfully."
+      "success": "Solicitação de Contato atualizada com sucesso."
     },
     "delete": {
-      "success": "Contact Request was removed successfully."
+      "success": "Solicitação de Contato removida com sucesso."
     }
   },
   "customer": {
     "list": {
-      "headline": "Customers",
-      "createNew": "Create new Customer",
-      "empty": "No Customers could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Clientes",
+      "createNew": "Criar novo Cliente",
+      "empty": "Nenhum Cliente encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Customer",
-      "back": "Back to list"
+      "headline": "Adicionar Cliente",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído em"
     },
     "companyId": {
-      "label": "Company Id"
+      "label": "ID da Empresa"
     },
     "customerType": {
-      "label": "Customer Type"
+      "label": "Tipo de Cliente"
     },
     "partnerUnit": {
-      "label": "Partner Unit"
+      "label": "Unidade Parceira"
     },
     "user": {
-      "label": "User"
+      "label": "Usuário"
     },
     "edit": {
-      "headline": "Edit Customer",
-      "back": "Back to list"
+      "headline": "Editar Cliente",
+      "back": "Voltar para a lista"
     },
     "company": {
       "customer": {
-        "referenced": "This entity is still referenced by Company {{id}} via field Customer."
+        "referenced": "Esta entidade ainda está referenciada pela Empresa {{id}} no campo Cliente."
       }
     },
     "customerOrder": {
       "customer": {
-        "referenced": "This entity is still referenced by Customer Order {{id}} via field Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido do Cliente {{id}} no campo Cliente."
       }
     },
     "dependent": {
       "customer": {
-        "referenced": "This entity is still referenced by Dependent {{id}} via field Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Dependente {{id}} no campo Cliente."
       }
     },
     "eventCustomer": {
       "customer": {
-        "referenced": "This entity is still referenced by Event Customer {{id}} via field Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Cliente do Evento {{id}} no campo Cliente."
       }
     },
     "ticket": {
       "customer": {
-        "referenced": "This entity is still referenced by Ticket {{id}} via field Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Ticket {{id}} no campo Cliente."
       }
     },
     "create": {
-      "success": "Customer was created successfully."
+      "success": "Cliente criado com sucesso."
     },
     "update": {
-      "success": "Customer was updated successfully."
+      "success": "Cliente atualizado com sucesso."
     },
     "delete": {
-      "success": "Customer was removed successfully."
+      "success": "Cliente removido com sucesso."
     }
   },
   "customerOrder": {
     "list": {
-      "headline": "Customer Orders",
-      "createNew": "Create new Customer Order",
-      "empty": "No Customer Orders could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Pedidos de Clientes",
+      "createNew": "Criar novo Pedido de Cliente",
+      "empty": "Nenhum Pedido de Cliente encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Customer Order",
-      "back": "Back to list"
+      "headline": "Adicionar Pedido de Cliente",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "isWapps": {
-      "label": "Is Wapps"
+      "label": "É Wapps"
     },
     "isPresidency": {
-      "label": "Is Presidency"
+      "label": "É Presidência"
     },
     "isClient": {
-      "label": "Is Client"
+      "label": "É Cliente"
     },
     "isDirector": {
-      "label": "Is Director"
+      "label": "É Diretor"
     },
     "isManager": {
-      "label": "Is Manager"
+      "label": "É Gerente"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído em"
     },
     "customer": {
-      "label": "Customer"
+      "label": "Cliente"
     },
     "order": {
-      "label": "Order"
+      "label": "Pedido"
     },
     "edit": {
-      "headline": "Edit Customer Order",
-      "back": "Back to list"
+      "headline": "Editar Pedido de Cliente",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Customer Order was created successfully."
+      "success": "Pedido de Cliente criado com sucesso."
     },
     "update": {
-      "success": "Customer Order was updated successfully."
+      "success": "Pedido de Cliente atualizado com sucesso."
     },
     "delete": {
-      "success": "Customer Order was removed successfully."
+      "success": "Pedido de Cliente removido com sucesso."
     }
   },
   "customerType": {
     "list": {
-      "headline": "Customer Types",
-      "createNew": "Create new Customer Type",
-      "empty": "No Customer Types could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Tipos de Cliente",
+      "createNew": "Criar novo Tipo de Cliente",
+      "empty": "Nenhum Tipo de Cliente encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Customer Type",
-      "back": "Back to list"
+      "headline": "Adicionar Tipo de Cliente",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Customer Type",
-      "back": "Back to list"
+      "headline": "Editar Tipo de Cliente",
+      "back": "Voltar para a lista"
     },
     "customer": {
       "customerType": {
-        "referenced": "This entity is still referenced by Customer {{id}} via field Customer Type."
+        "referenced": "Este tipo de cliente ainda está sendo referenciado pelo Cliente {{id}} através do campo Tipo de Cliente."
       }
     },
     "create": {
-      "success": "Customer Type was created successfully."
+      "success": "Tipo de Cliente criado com sucesso."
     },
     "update": {
-      "success": "Customer Type was updated successfully."
+      "success": "Tipo de Cliente atualizado com sucesso."
     },
     "delete": {
-      "success": "Customer Type was removed successfully."
+      "success": "Tipo de Cliente removido com sucesso."
     }
   },
   "dependent": {
     "list": {
-      "headline": "Dependents",
-      "createNew": "Create new Dependent",
-      "empty": "No Dependents could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Dependentes",
+      "createNew": "Criar novo Dependente",
+      "empty": "Nenhum Dependente encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Dependent",
-      "back": "Back to list"
+      "headline": "Adicionar Dependente",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "email": {
-      "label": "Email"
+      "label": "E-mail"
     },
     "cellPhone": {
-      "label": "Cell Phone"
+      "label": "Celular"
     },
     "type": {
-      "label": "Type"
+      "label": "Tipo"
     },
     "customer": {
-      "label": "Customer"
+      "label": "Cliente"
     },
     "edit": {
-      "headline": "Edit Dependent",
-      "back": "Back to list"
+      "headline": "Editar Dependente",
+      "back": "Voltar para a lista"
     },
     "fileControl": {
       "dependent": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field Dependent."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} no campo Dependente."
       }
     },
     "create": {
-      "success": "Dependent was created successfully."
+      "success": "Dependente criado com sucesso."
     },
     "update": {
-      "success": "Dependent was updated successfully."
+      "success": "Dependente atualizado com sucesso."
     },
     "delete": {
-      "success": "Dependent was removed successfully."
+      "success": "Dependente removido com sucesso."
     }
   },
   "educationDegree": {
@@ -1076,287 +1054,287 @@
   },
   "employee": {
     "list": {
-      "headline": "Employees",
-      "createNew": "Create new Employee",
-      "empty": "No Employees could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Funcionários",
+      "createNew": "Criar novo Funcionário",
+      "empty": "Nenhum Funcionário encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Employee",
-      "back": "Back to list"
+      "headline": "Adicionar Funcionário",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "cellPhone": {
-      "label": "Cell Phone"
+      "label": "Celular"
     },
     "position": {
-      "label": "Position"
+      "label": "Cargo"
     },
     "isApprentice": {
-      "label": "Is Apprentice"
+      "label": "É Aprendiz?"
     },
     "customerId": {
-      "label": "Customer Id"
+      "label": "ID do Cliente"
     },
     "address": {
-      "label": "Address"
+      "label": "Endereço"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "edit": {
-      "headline": "Edit Employee",
-      "back": "Back to list"
+      "headline": "Editar Funcionário",
+      "back": "Voltar para a lista"
     },
     "eventEmployee": {
       "employee": {
-        "referenced": "This entity is still referenced by Event Employee {{id}} via field Employee."
+        "referenced": "Esta entidade ainda está referenciada pelo Funcionário do Evento {{id}} no campo Funcionário."
       }
     },
     "create": {
-      "success": "Employee was created successfully."
+      "success": "Funcionário criado com sucesso."
     },
     "update": {
-      "success": "Employee was updated successfully."
+      "success": "Funcionário atualizado com sucesso."
     },
     "delete": {
-      "success": "Employee was removed successfully."
+      "success": "Funcionário removido com sucesso."
     }
   },
   "equipament": {
     "list": {
-      "headline": "Equipaments",
-      "createNew": "Create new Equipament",
-      "empty": "No Equipaments could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Equipamentos",
+      "createNew": "Criar novo Equipamento",
+      "empty": "Nenhum Equipamento encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Equipament",
-      "back": "Back to list"
+      "headline": "Adicionar Equipamento",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "voltage": {
-      "label": "Voltage"
+      "label": "Voltagem"
     },
     "type": {
-      "label": "Type"
+      "label": "Tipo"
     },
     "weight": {
-      "label": "Weight"
+      "label": "Peso"
     },
     "customerId": {
-      "label": "Customer Id"
+      "label": "ID do Cliente"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "edit": {
-      "headline": "Edit Equipament",
-      "back": "Back to list"
+      "headline": "Editar Equipamento",
+      "back": "Voltar para a lista"
     },
     "eventEquipament": {
       "equipament": {
-        "referenced": "This entity is still referenced by Event Equipament {{id}} via field Equipament."
+        "referenced": "Esta entidade ainda está referenciada pelo Equipamento do Evento {{id}} através do campo Equipamento."
       }
     },
     "create": {
-      "success": "Equipament was created successfully."
+      "success": "Equipamento criado com sucesso."
     },
     "update": {
-      "success": "Equipament was updated successfully."
+      "success": "Equipamento atualizado com sucesso."
     },
     "delete": {
-      "success": "Equipament was removed successfully."
+      "success": "Equipamento removido com sucesso."
     }
   },
   "event": {
     "list": {
-      "headline": "Events",
-      "createNew": "Create new Event",
-      "empty": "No Events could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Eventos",
+      "createNew": "Criar novo Evento",
+      "empty": "Nenhum Evento encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Event",
-      "back": "Back to list"
+      "headline": "Adicionar Evento",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "placeRealization": {
-      "label": "Place Realization"
+      "label": "Local de Realização"
     },
     "address": {
-      "label": "Address"
+      "label": "Endereço"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "eventType": {
-      "label": "Event Type"
+      "label": "Tipo de Evento"
     },
     "city": {
-      "label": "City"
+      "label": "Cidade"
     },
     "uf": {
-      "label": "Uf"
+      "label": "UF"
     },
     "programing": {
-      "label": "Programing"
+      "label": "Programação"
     },
     "assemblyInstructions": {
-      "label": "Assembly Instructions"
+      "label": "Instruções de Montagem"
     },
     "partyPaymentDate": {
-      "label": "Party Payment Date"
+      "label": "Data de Pagamento da Festa"
     },
     "partyDate": {
-      "label": "Party Date"
+      "label": "Data da Festa"
     },
     "timeStart": {
-      "label": "Time Start"
+      "label": "Horário de Início"
     },
     "timeEnd": {
-      "label": "Time End"
+      "label": "Horário de Término"
     },
     "tentValue": {
-      "label": "Tent Value"
+      "label": "Valor da Barraca"
     },
     "circulatingValue": {
-      "label": "Circulating Value"
+      "label": "Valor Circulante"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído em"
     },
     "edit": {
-      "headline": "Edit Event",
-      "back": "Back to list"
+      "headline": "Editar Evento",
+      "back": "Voltar para a lista"
     },
     "eventCustomer": {
       "event": {
-        "referenced": "This entity is still referenced by Event Customer {{id}} via field Event."
+        "referenced": "Esta entidade ainda está referenciada pelo Cliente do Evento {{id}} no campo Evento."
       }
     },
     "fileControl": {
       "event": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field Event."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} no campo Evento."
       }
     },
     "create": {
-      "success": "Event was created successfully."
+      "success": "Evento criado com sucesso."
     },
     "update": {
-      "success": "Event was updated successfully."
+      "success": "Evento atualizado com sucesso."
     },
     "delete": {
-      "success": "Event was removed successfully."
+      "success": "Evento removido com sucesso."
     }
   },
   "eventCustomer": {
     "list": {
-      "headline": "Event Customers",
-      "createNew": "Create new Event Customer",
-      "empty": "No Event Customers could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Clientes do Evento",
+      "createNew": "Criar novo Cliente do Evento",
+      "empty": "Nenhum Cliente do Evento encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Event Customer",
-      "back": "Back to list"
+      "headline": "Adicionar Cliente do Evento",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "type": {
-      "label": "Type"
+      "label": "Tipo"
     },
     "approved": {
-      "label": "Approved"
+      "label": "Aprovado"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "customer": {
-      "label": "Customer"
+      "label": "Cliente"
     },
     "event": {
-      "label": "Event"
+      "label": "Evento"
     },
     "edit": {
-      "headline": "Edit Event Customer",
-      "back": "Back to list"
+      "headline": "Editar Cliente do Evento",
+      "back": "Voltar para a lista"
     },
     "eventEmployee": {
       "eventCustomer": {
-        "referenced": "This entity is still referenced by Event Employee {{id}} via field Event Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Funcionário do Evento {{id}} no campo Cliente do Evento."
       }
     },
     "eventEquipament": {
       "eventCustomer": {
-        "referenced": "This entity is still referenced by Event Equipament {{id}} via field Event Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Equipamento do Evento {{id}} no campo Cliente do Evento."
       }
     },
     "eventMenu": {
       "eventCustomer": {
-        "referenced": "This entity is still referenced by Event Menu {{id}} via field Event Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Cardápio do Evento {{id}} no campo Cliente do Evento."
       }
     },
     "fileControl": {
       "eventCustomer": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field Event Customer."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} no campo Cliente do Evento."
       }
     },
     "create": {
-      "success": "Event Customer was created successfully."
+      "success": "Cliente do Evento criado com sucesso."
     },
     "update": {
-      "success": "Event Customer was updated successfully."
+      "success": "Cliente do Evento atualizado com sucesso."
     },
     "delete": {
-      "success": "Event Customer was removed successfully."
+      "success": "Cliente do Evento removido com sucesso."
     }
   },
   "eventEmployee": {
@@ -1399,40 +1377,40 @@
   },
   "eventEquipament": {
     "list": {
-      "headline": "Event Equipaments",
-      "createNew": "Create new Event Equipament",
-      "empty": "No Event Equipaments could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Equipamentos do Evento",
+      "createNew": "Criar novo Equipamento do Evento",
+      "empty": "Nenhum Equipamento do Evento encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Event Equipament",
-      "back": "Back to list"
+      "headline": "Adicionar Equipamento do Evento",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "equipament": {
-      "label": "Equipament"
+      "label": "Equipamento"
     },
     "eventCustomer": {
-      "label": "Event Customer"
+      "label": "Cliente do Evento"
     },
     "edit": {
-      "headline": "Edit Event Equipament",
-      "back": "Back to list"
+      "headline": "Editar Equipamento do Evento",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Event Equipament was created successfully."
+      "success": "Equipamento do Evento criado com sucesso."
     },
     "update": {
-      "success": "Event Equipament was updated successfully."
+      "success": "Equipamento do Evento atualizado com sucesso."
     },
     "delete": {
-      "success": "Event Equipament was removed successfully."
+      "success": "Equipamento do Evento removido com sucesso."
     }
   },
   "eventMenu": {
@@ -1475,40 +1453,40 @@
   },
   "eventMenuItem": {
     "list": {
-      "headline": "Event Menu Items",
-      "createNew": "Create new Event Menu Item",
-      "empty": "No Event Menu Items could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Itens do Cardápio do Evento",
+      "createNew": "Criar novo Item do Cardápio do Evento",
+      "empty": "Nenhum Item do Cardápio do Evento encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Event Menu Item",
-      "back": "Back to list"
+      "headline": "Adicionar Item ao Cardápio do Evento",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "menuItem": {
-      "label": "Menu Item"
+      "label": "Item do Cardápio"
     },
     "menu": {
-      "label": "Menu"
+      "label": "Cardápio"
     },
     "edit": {
-      "headline": "Edit Event Menu Item",
-      "back": "Back to list"
+      "headline": "Editar Item do Cardápio do Evento",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Event Menu Item was created successfully."
+      "success": "Item do Cardápio do Evento criado com sucesso."
     },
     "update": {
-      "success": "Event Menu Item was updated successfully."
+      "success": "Item do Cardápio do Evento atualizado com sucesso."
     },
     "delete": {
-      "success": "Event Menu Item was removed successfully."
+      "success": "Item do Cardápio do Evento removido com sucesso."
     }
   },
   "fileControl": {
@@ -1589,42 +1567,42 @@
   },
   "fileLayout": {
     "list": {
-      "headline": "File Layouts",
-      "createNew": "Create new File Layout",
-      "empty": "No File Layouts could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Layouts de Arquivo",
+      "createNew": "Criar novo Layout de Arquivo",
+      "empty": "Nenhum Layout de Arquivo encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add File Layout",
-      "back": "Back to list"
+      "headline": "Adicionar Layout de Arquivo",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "layoutName": {
-      "label": "Layout Name"
+      "label": "Nome do Layout"
     },
     "layoutSize": {
-      "label": "Layout Size"
+      "label": "Tamanho do Layout"
     },
     "edit": {
-      "headline": "Edit File Layout",
-      "back": "Back to list"
+      "headline": "Editar Layout de Arquivo",
+      "back": "Voltar para a lista"
     },
     "fileControl": {
       "layout": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field Layout."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} no campo Layout."
       }
     },
     "create": {
-      "success": "File Layout was created successfully."
+      "success": "Layout de Arquivo criado com sucesso."
     },
     "update": {
-      "success": "File Layout was updated successfully."
+      "success": "Layout de Arquivo atualizado com sucesso."
     },
     "delete": {
-      "success": "File Layout was removed successfully."
+      "success": "Layout de Arquivo removido com sucesso."
     }
   },
   "loginHistory": {
@@ -1673,55 +1651,55 @@
   },
   "menu": {
     "list": {
-      "headline": "Menus",
-      "createNew": "Create new Menu",
-      "empty": "No Menus could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Cardápios",
+      "createNew": "Criar novo Cardápio",
+      "empty": "Nenhum Cardápio encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Menu",
-      "back": "Back to list"
+      "headline": "Adicionar Cardápio",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "edit": {
-      "headline": "Edit Menu",
-      "back": "Back to list"
+      "headline": "Editar Cardápio",
+      "back": "Voltar para a lista"
     },
     "eventMenuItem": {
       "menu": {
-        "referenced": "This entity is still referenced by Event Menu Item {{id}} via field Menu."
+        "referenced": "Esta entidade ainda está referenciada pelo Item do Cardápio do Evento {{id}} no campo Cardápio."
       }
     },
     "eventMenu": {
       "menu": {
-        "referenced": "This entity is still referenced by Event Menu {{id}} via field Menu."
+        "referenced": "Esta entidade ainda está referenciada pelo Cardápio do Evento {{id}} no campo Cardápio."
       }
     },
     "menuItem": {
       "menu": {
-        "referenced": "This entity is still referenced by Menu Item {{id}} via field Menu."
+        "referenced": "Esta entidade ainda está referenciada pelo Item do Cardápio {{id}} no campo Cardápio."
       }
     },
     "create": {
-      "success": "Menu was created successfully."
+      "success": "Cardápio criado com sucesso."
     },
     "update": {
-      "success": "Menu was updated successfully."
+      "success": "Cardápio atualizado com sucesso."
     },
     "delete": {
-      "success": "Menu was removed successfully."
+      "success": "Cardápio removido com sucesso."
     }
   },
   "menuItem": {
@@ -1781,115 +1759,115 @@
   },
   "order": {
     "list": {
-      "headline": "Orders",
-      "createNew": "Create new Order",
-      "empty": "No Orders could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Pedidos",
+      "createNew": "Criar novo Pedido",
+      "empty": "Nenhum Pedido encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order",
-      "back": "Back to list"
+      "headline": "Adicionar Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "sigla": {
       "label": "Sigla"
     },
     "protocol": {
-      "label": "Protocol"
+      "label": "Protocolo"
     },
     "dueDate": {
-      "label": "Due Date"
+      "label": "Data de Vencimento"
     },
     "enabled": {
-      "label": "Enabled"
+      "label": "Ativo"
     },
     "orderIndex": {
-      "label": "Order Index"
+      "label": "Índice do Pedido"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado Em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado Em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído Em"
     },
     "orderStatus": {
-      "label": "Order Status"
+      "label": "Status do Pedido"
     },
     "orderType": {
-      "label": "Order Type"
+      "label": "Tipo de Pedido"
     },
     "partnerUnit": {
-      "label": "Partner Unit"
+      "label": "Unidade Parceira"
     },
     "productArea": {
-      "label": "Product Area"
+      "label": "Área do Produto"
     },
     "productCategory": {
-      "label": "Product Category"
+      "label": "Categoria do Produto"
     },
     "edit": {
-      "headline": "Edit Order",
-      "back": "Back to list"
+      "headline": "Editar Pedido",
+      "back": "Voltar para a lista"
     },
     "customerOrder": {
       "order": {
-        "referenced": "This entity is still referenced by Customer Order {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido do Cliente {{id}} no campo Pedido."
       }
     },
     "orderEmail": {
       "order": {
-        "referenced": "This entity is still referenced by Order Email {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pelo E-mail do Pedido {{id}} no campo Pedido."
       }
     },
     "orderFileControl": {
       "order": {
-        "referenced": "This entity is still referenced by Order File Control {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo do Pedido {{id}} no campo Pedido."
       }
     },
     "orderProperty": {
       "order": {
-        "referenced": "This entity is still referenced by Order Property {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pela Propriedade do Pedido {{id}} no campo Pedido."
       }
     },
     "orderTracking": {
       "order": {
-        "referenced": "This entity is still referenced by Order Tracking {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pelo Acompanhamento do Pedido {{id}} no campo Pedido."
       }
     },
     "ticket": {
       "order": {
-        "referenced": "This entity is still referenced by Ticket {{id}} via field Order."
+        "referenced": "Esta entidade ainda está referenciada pelo Ticket {{id}} no campo Pedido."
       }
     },
     "create": {
-      "success": "Order was created successfully."
+      "success": "Pedido criado com sucesso."
     },
     "update": {
-      "success": "Order was updated successfully."
+      "success": "Pedido atualizado com sucesso."
     },
     "delete": {
-      "success": "Order was removed successfully."
+      "success": "Pedido removido com sucesso."
     }
   },
   "orderEmail": {
@@ -1927,342 +1905,329 @@
       "success": "Order Email was updated successfully."
     },
     "delete": {
-      "success": "Order Email was removed successfully."
+      "success": "E-mail de Pedido removido com sucesso."
     }
   },
   "orderFileControl": {
     "list": {
-      "headline": "Order File Controls",
-      "createNew": "Create new Order File Control",
-      "empty": "No Order File Controls could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Controles de Arquivo de Pedidos",
+      "createNew": "Criar novo Controle de Arquivo de Pedido",
+      "empty": "Nenhum Controle de Arquivo de Pedido encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order File Control",
-      "back": "Back to list"
+      "headline": "Adicionar Controle de Arquivo de Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "fileControl": {
-      "label": "File Control"
+      "label": "Controle de Arquivo"
     },
     "order": {
-      "label": "Order"
+      "label": "Pedido"
     },
     "edit": {
-      "headline": "Edit Order File Control",
-      "back": "Back to list"
+      "headline": "Editar Controle de Arquivo de Pedido",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Order File Control was created successfully."
+      "success": "Controle de Arquivo de Pedido criado com sucesso."
     },
     "update": {
-      "success": "Order File Control was updated successfully."
+      "success": "Controle de Arquivo de Pedido atualizado com sucesso."
     },
     "delete": {
-      "success": "Order File Control was removed successfully."
+      "success": "Controle de Arquivo de Pedido removido com sucesso."
     }
   },
   "orderProperty": {
     "list": {
-      "headline": "Order Properties",
-      "createNew": "Create new Order Property",
-      "empty": "No Order Properties could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Propriedades de Pedidos",
+      "createNew": "Criar nova Propriedade de Pedido",
+      "empty": "Nenhuma Propriedade de Pedido encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order Property",
-      "back": "Back to list"
+      "headline": "Adicionar Propriedade de Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "value": {
-      "label": "Value"
+      "label": "Valor"
     },
     "order": {
-      "label": "Order"
+      "label": "Pedido"
     },
     "edit": {
-      "headline": "Edit Order Property",
-      "back": "Back to list"
+      "headline": "Editar Propriedade de Pedido",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Order Property was created successfully."
+      "success": "Propriedade de Pedido criada com sucesso."
     },
     "update": {
-      "success": "Order Property was updated successfully."
+      "success": "Propriedade de Pedido atualizada com sucesso."
     },
     "delete": {
-      "success": "Order Property was removed successfully."
+      "success": "Propriedade de Pedido removida com sucesso."
     }
   },
   "orderStatus": {
     "list": {
-      "headline": "Order Statuses",
-      "createNew": "Create new Order Status",
-      "empty": "No Order Statuses could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Status de Pedidos",
+      "createNew": "Criar novo Status de Pedido",
+      "empty": "Nenhum Status de Pedido encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order Status",
-      "back": "Back to list"
+      "headline": "Adicionar Status de Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Order Status",
-      "back": "Back to list"
+      "headline": "Editar Status de Pedido",
+      "back": "Voltar para a lista"
     },
     "order": {
       "orderStatus": {
-        "referenced": "This entity is still referenced by Order {{id}} via field Order Status."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido {{id}} no campo Status do Pedido."
       }
     },
     "create": {
-      "success": "Order Status was created successfully."
+      "success": "Status de Pedido criado com sucesso."
     },
     "update": {
-      "success": "Order Status was updated successfully."
+      "success": "Status de Pedido atualizado com sucesso."
     },
     "delete": {
-      "success": "Order Status was removed successfully."
+      "success": "Status de Pedido removido com sucesso."
     }
   },
   "orderTracking": {
     "list": {
-      "headline": "Order Trackings",
-      "createNew": "Create new Order Tracking",
-      "empty": "No Order Trackings could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Acompanhamentos de Pedidos",
+      "createNew": "Criar novo Acompanhamento de Pedido",
+      "empty": "Nenhum Acompanhamento de Pedido encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order Tracking",
-      "back": "Back to list"
+      "headline": "Adicionar Acompanhamento de Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "trackDate": {
-      "label": "Track Date"
+      "label": "Data de Acompanhamento"
     },
     "history": {
-      "label": "History"
+      "label": "Histórico"
     },
     "order": {
-      "label": "Order"
+      "label": "Pedido"
     },
     "edit": {
-      "headline": "Edit Order Tracking",
-      "back": "Back to list"
+      "headline": "Editar Acompanhamento de Pedido",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Order Tracking was created successfully."
+      "success": "Acompanhamento de Pedido criado com sucesso."
     },
     "update": {
-      "success": "Order Tracking was updated successfully."
+      "success": "Acompanhamento de Pedido atualizado com sucesso."
     },
     "delete": {
-      "success": "Order Tracking was removed successfully."
+      "success": "Acompanhamento de Pedido removido com sucesso."
     }
   },
   "orderType": {
     "list": {
-      "headline": "Order Types",
-      "createNew": "Create new Order Type",
-      "empty": "No Order Types could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Tipos de Pedido",
+      "createNew": "Criar novo Tipo de Pedido",
+      "empty": "Nenhum Tipo de Pedido encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Order Type",
-      "back": "Back to list"
+      "headline": "Adicionar Tipo de Pedido",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Order Type",
-      "back": "Back to list"
+      "headline": "Editar Tipo de Pedido",
+      "back": "Voltar para a lista"
     },
     "order": {
       "orderType": {
-        "referenced": "This entity is still referenced by Order {{id}} via field Order Type."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido {{id}} no campo Tipo de Pedido."
       }
     },
     "create": {
-      "success": "Order Type was created successfully."
+      "success": "Tipo de Pedido criado com sucesso."
     },
     "update": {
-      "success": "Order Type was updated successfully."
+      "success": "Tipo de Pedido atualizado com sucesso."
     },
     "delete": {
-      "success": "Order Type was removed successfully."
+      "success": "Tipo de Pedido removido com sucesso."
     }
   },
   "partner": {
     "list": {
-      "headline": "Partners",
-      "createNew": "Create new Partner",
-      "empty": "No Partners could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Parceiros",
+      "createNew": "Criar novo Parceiro",
+      "empty": "Nenhum Parceiro encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Partner",
-      "back": "Back to list"
+      "headline": "Adicionar Parceiro",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "email": {
-      "label": "Email"
+      "label": "E-mail"
     },
     "enabled": {
-      "label": "Enabled"
+      "label": "Ativo"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado Em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado Em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído Em"
     },
     "edit": {
-      "headline": "Edit Partner",
-      "back": "Back to list"
+      "headline": "Editar Parceiro",
+      "back": "Voltar para a lista"
     },
     "partnerUnit": {
       "partner": {
-        "referenced": "This entity is still referenced by Partner Unit {{id}} via field Partner."
+        "referenced": "Esta entidade ainda está referenciada pela Unidade Parceira {{id}} via campo Parceiro."
       }
     },
     "create": {
-      "success": "Partner was created successfully."
+      "success": "Parceiro criado com sucesso."
     },
     "update": {
-      "success": "Partner was updated successfully."
+      "success": "Parceiro atualizado com sucesso."
     },
     "delete": {
-      "success": "Partner was removed successfully."
+      "success": "Parceiro removido com sucesso."
     }
   },
   "partnerUnit": {
     "list": {
-      "headline": "Partner Units",
-      "createNew": "Create new Partner Unit",
-      "empty": "No Partner Units could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Unidades Parceiras",
+      "createNew": "Criar nova Unidade Parceira",
+      "empty": "Nenhuma Unidade Parceira encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Partner Unit",
-      "back": "Back to list"
+      "headline": "Adicionar Unidade Parceira",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
-    "cpfCnpj": {
-      "label": "Cpf Cnpj"
-    },
-    "email": {
-      "label": "Email"
+    "code": {
+      "label": "Código"
     },
     "enabled": {
-      "label": "Enabled"
+      "label": "Ativo"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado Em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado Em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído Em"
     },
     "partner": {
-      "label": "Partner"
+      "label": "Parceiro"
     },
     "edit": {
-      "headline": "Edit Partner Unit",
-      "back": "Back to list"
-    },
-    "customer": {
-      "partnerUnit": {
-        "referenced": "This entity is still referenced by Customer {{id}} via field Partner Unit."
-      }
+      "headline": "Editar Unidade Parceira",
+      "back": "Voltar para a lista"
     },
     "order": {
       "partnerUnit": {
-        "referenced": "This entity is still referenced by Order {{id}} via field Partner Unit."
-      }
-    },
-    "user": {
-      "partnerUnit": {
-        "referenced": "This entity is still referenced by User {{id}} via field Partner Unit."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido {{id}} no campo Unidade Parceira."
       }
     },
     "create": {
-      "success": "Partner Unit was created successfully."
+      "success": "Unidade Parceira criada com sucesso."
     },
     "update": {
-      "success": "Partner Unit was updated successfully."
+      "success": "Unidade Parceira atualizada com sucesso."
     },
     "delete": {
-      "success": "Partner Unit was removed successfully."
+      "success": "Unidade Parceira removida com sucesso."
     }
   },
   "passwordHistory": {
@@ -2332,212 +2297,212 @@
   },
   "portfolio": {
     "list": {
-      "headline": "Portfolios",
-      "createNew": "Create new Portfolio",
-      "empty": "No Portfolios could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Portfólios",
+      "createNew": "Criar novo Portfólio",
+      "empty": "Nenhum Portfólio encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Portfolio",
-      "back": "Back to list"
+      "headline": "Adicionar Portfólio",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "title": {
-      "label": "Title"
+      "label": "Título"
     },
     "filePath": {
-      "label": "File Path"
+      "label": "Caminho do Arquivo"
     },
     "customerId": {
-      "label": "Customer Id"
+      "label": "ID do Cliente"
     },
     "company": {
-      "label": "Company"
+      "label": "Empresa"
     },
     "edit": {
-      "headline": "Edit Portfolio",
-      "back": "Back to list"
+      "headline": "Editar Portfólio",
+      "back": "Voltar para a lista"
     },
     "fileControl": {
       "portfolio": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field Portfolio."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} no campo Portfólio."
       }
     },
     "create": {
-      "success": "Portfolio was created successfully."
+      "success": "Portfólio criado com sucesso."
     },
     "update": {
-      "success": "Portfolio was updated successfully."
+      "success": "Portfólio atualizado com sucesso."
     },
     "delete": {
-      "success": "Portfolio was removed successfully."
+      "success": "Portfólio removido com sucesso."
     }
   },
   "productArea": {
     "list": {
-      "headline": "Product Areas",
-      "createNew": "Create new Product Area",
-      "empty": "No Product Areas could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Áreas de Produto",
+      "createNew": "Criar nova Área de Produto",
+      "empty": "Nenhuma Área de Produto encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Product Area",
-      "back": "Back to list"
+      "headline": "Adicionar Área de Produto",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Product Area",
-      "back": "Back to list"
+      "headline": "Editar Área de Produto",
+      "back": "Voltar para a lista"
     },
     "order": {
       "productArea": {
-        "referenced": "This entity is still referenced by Order {{id}} via field Product Area."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido {{id}} no campo Área de Produto."
       }
     },
     "create": {
-      "success": "Product Area was created successfully."
+      "success": "Área de Produto criada com sucesso."
     },
     "update": {
-      "success": "Product Area was updated successfully."
+      "success": "Área de Produto atualizada com sucesso."
     },
     "delete": {
-      "success": "Product Area was removed successfully."
+      "success": "Área de Produto removida com sucesso."
     }
   },
   "productCategory": {
     "list": {
-      "headline": "Product Categories",
-      "createNew": "Create new Product Category",
-      "empty": "No Product Categories could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Categorias de Produto",
+      "createNew": "Criar nova Categoria de Produto",
+      "empty": "Nenhuma Categoria de Produto encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Product Category",
-      "back": "Back to list"
+      "headline": "Adicionar Categoria de Produto",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Product Category",
-      "back": "Back to list"
+      "headline": "Editar Categoria de Produto",
+      "back": "Voltar para a lista"
     },
     "order": {
       "productCategory": {
-        "referenced": "This entity is still referenced by Order {{id}} via field Product Category."
+        "referenced": "Esta entidade ainda está referenciada pelo Pedido {{id}} no campo Categoria de Produto."
       }
     },
     "create": {
-      "success": "Product Category was created successfully."
+      "success": "Categoria de Produto criada com sucesso."
     },
     "update": {
-      "success": "Product Category was updated successfully."
+      "success": "Categoria de Produto atualizada com sucesso."
     },
     "delete": {
-      "success": "Product Category was removed successfully."
+      "success": "Categoria de Produto removida com sucesso."
     }
   },
   "registrationRequest": {
     "list": {
-      "headline": "Registration Requests",
-      "createNew": "Create new Registration Request",
-      "empty": "No Registration Requests could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Solicitações de Registro",
+      "createNew": "Criar nova Solicitação de Registro",
+      "empty": "Nenhuma Solicitação de Registro encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Registration Request",
-      "back": "Back to list"
+      "headline": "Adicionar Solicitação de Registro",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "approved": {
-      "label": "Approved"
+      "label": "Aprovado"
     },
     "reason": {
-      "label": "Reason"
+      "label": "Motivo"
     },
     "protocol": {
-      "label": "Protocol"
+      "label": "Protocolo"
     },
     "date": {
-      "label": "Date"
+      "label": "Data"
     },
     "user": {
-      "label": "User"
+      "label": "Usuário"
     },
     "edit": {
-      "headline": "Edit Registration Request",
-      "back": "Back to list"
+      "headline": "Editar Solicitação de Registro",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Registration Request was created successfully."
+      "success": "Solicitação de Registro criada com sucesso."
     },
     "update": {
-      "success": "Registration Request was updated successfully."
+      "success": "Solicitação de Registro atualizada com sucesso."
     },
     "delete": {
-      "success": "Registration Request was removed successfully."
+      "success": "Solicitação de Registro removida com sucesso."
     }
   },
   "role": {
     "list": {
-      "headline": "Roles",
-      "createNew": "Create new Role",
-      "empty": "No Roles could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Funções",
+      "createNew": "Criar nova Função",
+      "empty": "Nenhuma Função encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Role",
-      "back": "Back to list"
+      "headline": "Adicionar Função",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "value": {
-      "label": "Value"
+      "label": "Valor"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Role",
-      "back": "Back to list"
+      "headline": "Editar Função",
+      "back": "Voltar para a lista"
     },
     "user": {
       "role": {
-        "referenced": "This entity is still referenced by User {{id}} via field Role."
+        "referenced": "Esta entidade ainda está referenciada pelo Usuário {{id}} no campo Função."
       }
     },
     "create": {
-      "success": "Role was created successfully."
+      "success": "Função criada com sucesso."
     },
     "update": {
-      "success": "Role was updated successfully."
+      "success": "Função atualizada com sucesso."
     },
     "delete": {
-      "success": "Role was removed successfully."
+      "success": "Função removida com sucesso."
     }
   },
   "specialNeeds": {
@@ -2578,419 +2543,462 @@
   "ticket": {
     "list": {
       "headline": "Tickets",
-      "createNew": "Create new Ticket",
-      "empty": "No Tickets could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "createNew": "Criar novo Ticket",
+      "empty": "Nenhum Ticket encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Ticket",
-      "back": "Back to list"
+      "headline": "Adicionar Ticket",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "solution": {
-      "label": "Solution"
+      "label": "Solução"
     },
     "dueDate": {
-      "label": "Due Date"
+      "label": "Data de Vencimento"
     },
     "active": {
-      "label": "Active"
+      "label": "Ativo"
     },
     "creatorId": {
-      "label": "Creator Id"
+      "label": "ID do Criador"
     },
     "modifierId": {
-      "label": "Modifier Id"
+      "label": "ID do Modificador"
     },
     "deleterId": {
-      "label": "Deleter Id"
+      "label": "ID do Excluidor"
     },
     "isDeleted": {
-      "label": "Is Deleted"
+      "label": "Excluído?"
     },
     "createdAt": {
-      "label": "Created At"
+      "label": "Criado Em"
     },
     "updatedAt": {
-      "label": "Updated At"
+      "label": "Atualizado Em"
     },
     "deletedAt": {
-      "label": "Deleted At"
+      "label": "Excluído Em"
     },
     "customer": {
-      "label": "Customer"
+      "label": "Cliente"
     },
     "order": {
-      "label": "Order"
+      "label": "Pedido"
     },
     "ticketStatus": {
-      "label": "Ticket Status"
+      "label": "Status do Ticket"
     },
     "edit": {
-      "headline": "Edit Ticket",
-      "back": "Back to list"
+      "headline": "Editar Ticket",
+      "back": "Voltar para a lista"
     },
     "attachment": {
       "ticket": {
-        "referenced": "This entity is still referenced by Attachment {{id}} via field Ticket."
+        "referenced": "Esta entidade ainda está referenciada pelo Anexo {{id}} no campo Ticket."
       }
     },
     "orderEmail": {
       "ticket": {
-        "referenced": "This entity is still referenced by Order Email {{id}} via field Ticket."
+        "referenced": "Esta entidade ainda está referenciada pelo E-mail de Pedido {{id}} no campo Ticket."
       }
     },
     "ticketProperty": {
       "ticket": {
-        "referenced": "This entity is still referenced by Ticket Property {{id}} via field Ticket."
+        "referenced": "Esta entidade ainda está referenciada pela Propriedade de Ticket {{id}} no campo Ticket."
       }
     },
     "create": {
-      "success": "Ticket was created successfully."
+      "success": "Ticket criado com sucesso."
     },
     "update": {
-      "success": "Ticket was updated successfully."
+      "success": "Ticket atualizado com sucesso."
     },
     "delete": {
-      "success": "Ticket was removed successfully."
+      "success": "Ticket removido com sucesso."
     }
   },
   "ticketProperty": {
     "list": {
-      "headline": "Ticket Properties",
-      "createNew": "Create new Ticket Property",
-      "empty": "No Ticket Properties could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Propriedades de Ticket",
+      "createNew": "Criar nova Propriedade de Ticket",
+      "empty": "Nenhuma Propriedade de Ticket encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Ticket Property",
-      "back": "Back to list"
+      "headline": "Adicionar Propriedade de Ticket",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "value": {
-      "label": "Value"
+      "label": "Valor"
     },
     "ticket": {
       "label": "Ticket"
     },
     "edit": {
-      "headline": "Edit Ticket Property",
-      "back": "Back to list"
+      "headline": "Editar Propriedade de Ticket",
+      "back": "Voltar para a lista"
     },
     "create": {
-      "success": "Ticket Property was created successfully."
+      "success": "Propriedade de Ticket criada com sucesso."
     },
     "update": {
-      "success": "Ticket Property was updated successfully."
+      "success": "Propriedade de Ticket atualizada com sucesso."
     },
     "delete": {
-      "success": "Ticket Property was removed successfully."
+      "success": "Propriedade de Ticket removida com sucesso."
     }
   },
   "ticketStatus": {
     "list": {
-      "headline": "Ticket Statuses",
-      "createNew": "Create new Ticket Status",
-      "empty": "No Ticket Statuses could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Status de Tickets",
+      "createNew": "Criar novo Status de Ticket",
+      "empty": "Nenhum Status de Ticket encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add Ticket Status",
-      "back": "Back to list"
+      "headline": "Adicionar Status de Ticket",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit Ticket Status",
-      "back": "Back to list"
+      "headline": "Editar Status de Ticket",
+      "back": "Voltar para a lista"
     },
     "ticket": {
       "ticketStatus": {
-        "referenced": "This entity is still referenced by Ticket {{id}} via field Ticket Status."
+        "referenced": "Esta entidade ainda está referenciada pelo Ticket {{id}} no campo Status de Ticket."
       }
     },
     "create": {
-      "success": "Ticket Status was created successfully."
+      "success": "Status de Ticket criado com sucesso."
     },
     "update": {
-      "success": "Ticket Status was updated successfully."
+      "success": "Status de Ticket atualizado com sucesso."
     },
     "delete": {
-      "success": "Ticket Status was removed successfully."
+      "success": "Status de Ticket removido com sucesso."
     }
   },
   "user": {
     "list": {
-      "headline": "Users",
-      "createNew": "Create new User",
-      "empty": "No Users could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Usuários",
+      "createNew": "Criar novo Usuário",
+      "empty": "Nenhum Usuário encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add User",
-      "back": "Back to list"
+      "headline": "Adicionar Usuário",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "matricula": {
-      "label": "Matricula"
+      "label": "Matrícula"
     },
     "name": {
-      "label": "Name"
+      "label": "Nome"
     },
     "socialName": {
-      "label": "Social Name"
+      "label": "Nome Social"
     },
     "surname": {
-      "label": "Surname"
+      "label": "Sobrenome"
     },
     "gender": {
-      "label": "Gender"
+      "label": "Gênero"
     },
     "birthplace": {
-      "label": "Birthplace"
+      "label": "Naturalidade"
     },
     "civilStatus": {
-      "label": "Civil Status"
+      "label": "Estado Civil"
     },
     "fatherName": {
-      "label": "Father Name"
+      "label": "Nome do Pai"
     },
     "motherName": {
-      "label": "Mother Name"
+      "label": "Nome da Mãe"
     },
     "nationality": {
-      "label": "Nationality"
+      "label": "Nacionalidade"
     },
     "rg": {
-      "label": "Rg"
+      "label": "RG"
     },
     "ufIssuingBody": {
-      "label": "Uf Issuing Body"
+      "label": "Órgão Emissor UF"
     },
     "cpfCnpj": {
-      "label": "Cpf Cnpj"
+      "label": "CPF/CNPJ"
     },
     "email": {
-      "label": "Email"
+      "label": "E-mail"
     },
     "password": {
-      "label": "Password"
+      "label": "Senha"
     },
     "race": {
-      "label": "Race"
+      "label": "Raça/Cor"
     },
     "profession": {
-      "label": "Profession"
+      "label": "Profissão"
     },
     "cellPhone": {
-      "label": "Cell Phone"
+      "label": "Celular"
     },
     "homePhone": {
-      "label": "Home Phone"
+      "label": "Telefone Residencial"
     },
     "businessPhone": {
-      "label": "Business Phone"
+      "label": "Telefone Comercial"
     },
     "hasSpecialNeeds": {
-      "label": "Has Special Needs"
+      "label": "Possui Necessidades Especiais"
     },
     "specialNeedsOther": {
-      "label": "Special Needs Other"
+      "label": "Outras Necessidades Especiais"
     },
     "isSystem": {
-      "label": "Is System"
+      "label": "É Sistema"
     },
     "isCustomer": {
-      "label": "Is Customer"
+      "label": "É Cliente"
     },
     "securelyPhrase": {
-      "label": "Securely Phrase"
+      "label": "Frase de Segurança"
     },
     "loginAttemps": {
-      "label": "Login Attemps"
+      "label": "Tentativas de Login"
     },
     "passwordPolicyEnabled": {
-      "label": "Password Policy Enabled"
+      "label": "Política de Senha Habilitada"
     },
     "birthdate": {
-      "label": "Birthdate"
+      "label": "Data de Nascimento"
     },
     "lastLoginAt": {
-      "label": "Last Login At"
+      "label": "Último Login em"
     },
-    "lastPasswordChangedAt": {
-      "label": "Last Password Changed At"
+    "lastLogoutAt": {
+      "label": "Último Logout em"
     },
-    "passwordResetToken": {
-      "label": "Password Reset Token"
+    "lastPasswordChangeAt": {
+      "label": "Última Alteração de Senha em"
     },
-    "creatorId": {
-      "label": "Creator Id"
+    "lastPasswordResetAt": {
+      "label": "Último Redefinição de Senha em"
     },
-    "modifierId": {
-      "label": "Modifier Id"
+    "lastLoginIp": {
+      "label": "IP do Último Login"
     },
-    "deleterId": {
-      "label": "Deleter Id"
+    "lastLogoutIp": {
+      "label": "IP do Último Logout"
     },
-    "isDeleted": {
-      "label": "Is Deleted"
+    "lastPasswordChangeIp": {
+      "label": "IP da Última Alteração de Senha"
     },
-    "createdAt": {
-      "label": "Created At"
+    "lastPasswordResetIp": {
+      "label": "IP da Última Redefinição de Senha"
     },
-    "updatedAt": {
-      "label": "Updated At"
+    "lastLoginUserAgent": {
+      "label": "User Agent do Último Login"
     },
-    "deletedAt": {
-      "label": "Deleted At"
+    "lastLogoutUserAgent": {
+      "label": "User Agent do Último Logout"
     },
-    "address": {
-      "label": "Address"
+    "lastPasswordChangeUserAgent": {
+      "label": "User Agent da Última Alteração de Senha"
     },
-    "educationDegree": {
-      "label": "Education Degree"
+    "lastPasswordResetUserAgent": {
+      "label": "User Agent da Última Redefinição de Senha"
     },
-    "partnerUnit": {
-      "label": "Partner Unit"
+    "lastLoginLocation": {
+      "label": "Localização do Último Login"
     },
-    "role": {
-      "label": "Role"
+    "lastLogoutLocation": {
+      "label": "Localização do Último Logout"
     },
-    "userStatus": {
-      "label": "User Status"
+    "lastPasswordChangeLocation": {
+      "label": "Localização da Última Alteração de Senha"
+    },
+    "lastPasswordResetLocation": {
+      "label": "Localização da Última Redefinição de Senha"
     },
     "edit": {
-      "headline": "Edit User",
-      "back": "Back to list"
+      "headline": "Editar Usuário",
+      "back": "Voltar para a lista"
     },
     "audit": {
       "user": {
-        "referenced": "This entity is still referenced by Audit {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pela Auditoria {{id}} através do campo Usuário."
       }
     },
     "customer": {
       "user": {
-        "referenced": "This entity is still referenced by Customer {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pelo Cliente {{id}} através do campo Usuário."
       }
     },
     "fileControl": {
       "user": {
-        "referenced": "This entity is still referenced by File Control {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pelo Controle de Arquivo {{id}} através do campo Usuário."
       }
     },
     "loginHistory": {
       "user": {
-        "referenced": "This entity is still referenced by Login History {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pelo Histórico de Login {{id}} através do campo Usuário."
       }
     },
     "passwordHistory": {
       "user": {
-        "referenced": "This entity is still referenced by Password History {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pelo Histórico de Senhas {{id}} através do campo Usuário."
       }
     },
     "registrationRequest": {
       "user": {
-        "referenced": "This entity is still referenced by Registration Request {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada pela Solicitação de Registro {{id}} através do campo Usuário."
       }
     },
     "specialNeeds": {
       "user": {
-        "referenced": "This entity is still referenced by Special Needs {{id}} via field User."
+        "referenced": "Esta entidade ainda está referenciada por Necessidades Especiais {{id}} através do campo Usuário."
       }
     },
     "create": {
-      "success": "User was created successfully."
+      "success": "Usuário criado com sucesso."
     },
     "update": {
-      "success": "User was updated successfully."
+      "success": "Usuário atualizado com sucesso."
     },
     "delete": {
-      "success": "User was removed successfully."
+      "success": "Usuário removido com sucesso."
+    }
+  },
+  "specialNeeds": {
+    "list": {
+      "headline": "Necessidades Especiais",
+      "createNew": "Criar nova Necessidade Especial",
+      "empty": "Nenhuma Necessidade Especial encontrada.",
+      "edit": "Editar",
+      "delete": "Excluir"
+    },
+    "add": {
+      "headline": "Adicionar Necessidade Especial",
+      "back": "Voltar para a lista"
+    },
+    "id": {
+      "label": "ID"
+    },
+    "name": {
+      "label": "Nome"
+    },
+    "description": {
+      "label": "Descrição"
+    },
+    "edit": {
+      "headline": "Editar Necessidade Especial",
+      "back": "Voltar para a lista"
+    },
+    "customer": {
+      "specialNeeds": {
+        "referenced": "Esta entidade ainda está referenciada pelo Cliente {{id}} no campo Necessidades Especiais."
+      }
+    },
+    "create": {
+      "success": "Necessidade Especial criada com sucesso."
+    },
+    "update": {
+      "success": "Necessidade Especial atualizada com sucesso."
+    },
+    "delete": {
+      "success": "Necessidade Especial removida com sucesso."
     }
   },
   "userStatus": {
     "list": {
-      "headline": "User Statuses",
-      "createNew": "Create new User Status",
-      "empty": "No User Statuses could be found.",
-      "edit": "Edit",
-      "delete": "Delete"
+      "headline": "Status de Usuários",
+      "createNew": "Criar novo Status de Usuário",
+      "empty": "Nenhum Status de Usuário encontrado.",
+      "edit": "Editar",
+      "delete": "Excluir"
     },
     "add": {
-      "headline": "Add User Status",
-      "back": "Back to list"
+      "headline": "Adicionar Status de Usuário",
+      "back": "Voltar para a lista"
     },
     "id": {
-      "label": "Id"
+      "label": "ID"
     },
     "code": {
-      "label": "Code"
+      "label": "Código"
     },
     "description": {
-      "label": "Description"
+      "label": "Descrição"
     },
     "edit": {
-      "headline": "Edit User Status",
-      "back": "Back to list"
+      "headline": "Editar Status de Usuário",
+      "back": "Voltar para a lista"
     },
     "user": {
       "userStatus": {
-        "referenced": "This entity is still referenced by User {{id}} via field User Status."
+        "referenced": "Esta entidade ainda está referenciada pelo Usuário {{id}} através do campo Status de Usuário."
       }
     },
     "create": {
-      "success": "User Status was created successfully."
+      "success": "Status de Usuário criado com sucesso."
     },
     "update": {
-      "success": "User Status was updated successfully."
+      "success": "Status de Usuário atualizado com sucesso."
     },
     "delete": {
-      "success": "User Status was removed successfully."
+      "success": "Status de Usuário removido com sucesso."
     }
   },
   "exists": {
     "efmigrationsHistory": {
-      "migrationId": "This Migration Id is already taken."
+      "migrationId": "Este ID de Migração já está em uso."
     }
   },
   "select": {
     "empty": {
-      "label": "Please select"
+      "label": "Selecione uma opção"
     }
   },
   "delete": {
-    "confirm": "Do you really want to delete this element? This cannot be undone."
+    "confirm": "Você realmente deseja excluir este elemento? Esta ação não pode ser desfeita."
   },
   "operation": {
-    "success": "Your operation was successful."
+    "success": "Sua operação foi concluída com sucesso."
   },
-  "required": "Please provide a value.",
-  "maxlength": "Your value must have a length of less then ${max} characters.",
+  "required": "Por favor, informe um valor.",
+  "maxlength": "Seu valor deve ter menos de ${max} caracteres.",
   "valid": {
-    "offsetDateTime": "Please provide a valid date with offset, for example \"2026-01-23T14:55:00+01:00\".",
-    "uuid": "Please provide a valid UUID, for example \"e55da52e-d126-347d-b59e-70c05721a8aa\".",
-    "number": "Please provide a valid number.",
+    "offsetDateTime": "Por favor, informe uma data com fuso horário válido, por exemplo \"2026-01-23T14:55:00-03:00\".",
+    "uuid": "Por favor, informe um UUID válido, por exemplo \"e55da52e-d126-347d-b59e-70c05721a8aa\".",
+    "number": "Por favor, informe um número válido.",
     "numeric": {
-      "format": "Please provide a valid numeric number.",
-      "digits": "Your provided value is out of the valid range: <{{precision}} digits>.<{{scale}} digits> expected."
+      "format": "Por favor, informe um número válido.",
+      "digits": "O valor fornecido está fora do intervalo válido: são esperados <{{precision}} dígitos>.<{{scale}} dígitos>."
     }
   }
 }

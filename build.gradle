@@ -20,7 +20,7 @@ plugins {
 }
 
 group = 'wastecnologia.wapps'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(24)
@@ -36,30 +36,30 @@ repositories {
 }
 
 // Configuração do Node.js
-node {
-    version = '24.4.1'  // Versão instalada no sistema
-    npmVersion = '11.4.2'  // Versão do npm instalada
-    download = false  // Usa o Node.js já instalado
-    workDir = file("${project.buildDir}/nodejs")
-    npmWorkDir = file("${project.buildDir}/npm")
-    nodeProjectDir = file("${project.projectDir}")
-}
+//node {
+//    version = '24.4.1'  // Versão instalada no sistema
+//    npmVersion = '11.4.2'  // Versão do npm instalada
+//    download = false  // Usa o Node.js já instalado
+//    workDir = file("${project.buildDir}/nodejs")
+//    npmWorkDir = file("${project.buildDir}/npm")
+//    nodeProjectDir = file("${project.projectDir}")
+//}
 
 // Tarefa personalizada para instalar as dependências
-task npmInstallDeps(type: NpmTask) {
-    description = 'Instala as dependências do Node.js'
-    group = 'build'
-    
-    // Força a instalação limpa
-    inputs.file('package.json')
-    outputs.dir('node_modules')
-    
-    // Comandos para limpar cache e instalar
-    args = ['install', '--no-audit', '--prefer-offline', '--legacy-peer-deps']
-}
-
-// Garante que o npmInstallDeps seja executado antes do npmInstall
-tasks.npmInstall.dependsOn(npmInstallDeps)
+//task npmInstallDeps(type: NpmTask) {
+//    description = 'Instala as dependências do Node.js'
+//    group = 'build'
+//
+//    // Força a instalação limpa
+//    inputs.file('package.json')
+//    outputs.dir('node_modules')
+//
+//    // Comandos para limpar cache e instalar
+//    args = ['install', '--no-audit', '--prefer-offline', '--legacy-peer-deps']
+//}
+//
+//// Garante que o npmInstallDeps seja executado antes do npmInstall
+//tasks.npmInstall.dependsOn(npmInstallDeps)
 
 // Configuração do Flyway
 flyway {
@@ -117,22 +117,22 @@ node {
     download = false
 }
 
-tasks.register('npmRunBuild', NpmTask) {
-    args = ['run', 'build']
-    dependsOn npmInstall
+//tasks.register('npmRunBuild', NpmTask) {
+//    args = ['run', 'build']
+//    dependsOn npmInstall
+//
+//    inputs.files(fileTree('node_modules'))
+//    inputs.files(fileTree('src/main/webapp'))
+//    inputs.file('.env')
+//    inputs.file('package.json')
+//    inputs.file('tsconfig.json')
+//    inputs.file('webpack.config.js')
+//    outputs.dir(layout.buildDirectory.dir('resources/main/static'))
+//}
 
-    inputs.files(fileTree('node_modules'))
-    inputs.files(fileTree('src/main/webapp'))
-    inputs.file('.env')
-    inputs.file('package.json')
-    inputs.file('tsconfig.json')
-    inputs.file('webpack.config.js')
-    outputs.dir(layout.buildDirectory.dir('resources/main/static'))
-}
-
-processResources {
-    dependsOn npmRunBuild
-}
+//processResources {
+//    dependsOn npmRunBuild
+//}
 
 tasks.withType(Test) {
     useJUnitPlatform()
