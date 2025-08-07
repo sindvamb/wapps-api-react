@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import {Message, Reference} from "yup";
 
 declare module 'yup' {
   interface StringSchema<TType extends yup.Maybe<string> = string|undefined, TContext = yup.AnyObject, TDefault = undefined, TFlags extends yup.Flags = ''> extends yup.Schema<TType, TContext, TDefault, TFlags> {

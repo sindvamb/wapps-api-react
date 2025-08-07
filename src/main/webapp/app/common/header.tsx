@@ -1,118 +1,93 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
+// Ícone de menu para o botão de toggle
+type MenuIconProps = {
+  className?: string;
+};
 
-export default function Header() {
+const MenuIcon: React.FC<MenuIconProps> = ({ className }) => (
+  <svg 
+    className={className} 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
+
+type HeaderProps = {
+  onToggleSidebar: () => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   const { t } = useTranslation();
-  const headerRef = useRef<HTMLElement|null>(null);
-
-  const handleClick = (event: Event) => {
-    // close any open dropdown
-    const $clickedDropdown = (event.target as HTMLElement).closest('.js-dropdown');
-    const $dropdowns = headerRef.current!.querySelectorAll('.js-dropdown');
-    $dropdowns.forEach(($dropdown:Element) => {
-      if ($clickedDropdown !== $dropdown && $dropdown.getAttribute('data-dropdown-keepopen') !== 'true') {
-        $dropdown.ariaExpanded = 'false';
-        $dropdown.nextElementSibling!.classList.add('hidden');
-      }
-    });
-    // toggle selected if applicable
-    if ($clickedDropdown) {
-      $clickedDropdown.ariaExpanded = '' + ($clickedDropdown.ariaExpanded !== 'true');
-      $clickedDropdown.nextElementSibling!.classList.toggle('hidden');
-    }
-  };
-
-  useEffect(() => {
-    document.body.addEventListener('click', handleClick);
-    return () => document.body.removeEventListener('click', handleClick);
-  }, []);
 
   return (
-    <header ref={headerRef} className="bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
-        <nav className="flex flex-wrap items-center justify-between py-2">
-          <Link to="/" className="flex py-1.5 mr-4">
-            <img src="/images/logo.png" alt={t('app.title')} width="30" height="30" className="inline-block" />
-            <span className="text-xl pl-3">{t('app.title')}</span>
-          </Link>
-          <button type="button" className="js-dropdown md:hidden border rounded cursor-pointer" data-dropdown-keepopen="true"
-              aria-label={t('navigation.toggle')} aria-controls="navbarToggle" aria-expanded="false">
-            <div className="space-y-1.5 my-2.5 mx-4">
-              <div className="w-6 h-0.5 bg-gray-500"></div>
-              <div className="w-6 h-0.5 bg-gray-500"></div>
-              <div className="w-6 h-0.5 bg-gray-500"></div>
+    <header className="bg-white shadow-sm z-10">
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            {/* Botão para mostrar/esconder a sidebar em telas móveis */}
+            <button
+              type="button"
+              onClick={onToggleSidebar}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 lg:hidden"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Abrir menu principal</span>
+              <MenuIcon className="block h-6 w-6" />
+            </button>
+            
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center ml-4 lg:ml-0">
+              <Link to="/" className="flex items-center">
+                <img 
+                  className="h-8 w-auto" 
+                  src="/images/logo.png" 
+                  alt={t('app.title')} 
+                />
+                <span className="ml-3 text-xl font-semibold text-gray-800 hidden sm:block">
+                  {t('app.title')}
+                </span>
+              </Link>
             </div>
-          </button>
-          <div className="hidden md:block flex grow md:grow-0 justify-end basis-full md:basis-auto pt-3 md:pt-1 pb-1" id="navbarToggle">
-            <ul className="flex">
-              <li>
-                <Link to="/" className="block text-gray-500 p-2">{t('navigation.home')}</Link>
-              </li>
-              <li className="relative">
-                <button type="button" className="js-dropdown block text-gray-500 p-2 cursor-pointer" id="navbarEntitiesLink"
-                    aria-expanded="false">
-                  <span>{t('navigation.entities')}</span>
-                  <span className="text-[9px] align-[3px] pl-0.5">&#9660;</span>
-                </button>
-                <ul className="hidden block absolute right-0 bg-white border border-gray-300 rounded min-w-[10rem] py-2" aria-labelledby="navbarEntitiesLink">
-                  <li><Link to="/efmigrationsHistories" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('efmigrationsHistory.list.headline')}</Link></li>
-                  <li><Link to="/accessControls" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('accessControl.list.headline')}</Link></li>
-                  <li><Link to="/addresses" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('address.list.headline')}</Link></li>
-                  <li><Link to="/applicationConfigs" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('applicationConfig.list.headline')}</Link></li>
-                  <li><Link to="/attachments" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('attachment.list.headline')}</Link></li>
-                  <li><Link to="/audits" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('audit.list.headline')}</Link></li>
-                  <li><Link to="/companies" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('company.list.headline')}</Link></li>
-                  <li><Link to="/companyContacts" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('companyContact.list.headline')}</Link></li>
-                  <li><Link to="/contacts" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('contact.list.headline')}</Link></li>
-                  <li><Link to="/contactRequests" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('contactRequest.list.headline')}</Link></li>
-                  <li><Link to="/customers" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('customer.list.headline')}</Link></li>
-                  <li><Link to="/customerOrders" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('customerOrder.list.headline')}</Link></li>
-                  <li><Link to="/customerTypes" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('customerType.list.headline')}</Link></li>
-                  <li><Link to="/dependents" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('dependent.list.headline')}</Link></li>
-                  <li><Link to="/educationDegrees" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('educationDegree.list.headline')}</Link></li>
-                  <li><Link to="/emailHistories" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('emailHistory.list.headline')}</Link></li>
-                  <li><Link to="/employees" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('employee.list.headline')}</Link></li>
-                  <li><Link to="/equipaments" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('equipament.list.headline')}</Link></li>
-                  <li><Link to="/events" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('event.list.headline')}</Link></li>
-                  <li><Link to="/eventCustomers" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('eventCustomer.list.headline')}</Link></li>
-                  <li><Link to="/eventEmployees" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('eventEmployee.list.headline')}</Link></li>
-                  <li><Link to="/eventEquipaments" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('eventEquipament.list.headline')}</Link></li>
-                  <li><Link to="/eventMenus" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('eventMenu.list.headline')}</Link></li>
-                  <li><Link to="/eventMenuItems" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('eventMenuItem.list.headline')}</Link></li>
-                  <li><Link to="/fileControls" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('fileControl.list.headline')}</Link></li>
-                  <li><Link to="/fileLayouts" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('fileLayout.list.headline')}</Link></li>
-                  <li><Link to="/loginHistories" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('loginHistory.list.headline')}</Link></li>
-                  <li><Link to="/menus" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('menu.list.headline')}</Link></li>
-                  <li><Link to="/menuItems" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('menuItem.list.headline')}</Link></li>
-                  <li><Link to="/orders" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('order.list.headline')}</Link></li>
-                  <li><Link to="/orderEmails" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderEmail.list.headline')}</Link></li>
-                  <li><Link to="/orderFileControls" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderFileControl.list.headline')}</Link></li>
-                  <li><Link to="/orderProperties" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderProperty.list.headline')}</Link></li>
-                  <li><Link to="/orderStatuses" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderStatus.list.headline')}</Link></li>
-                  <li><Link to="/orderTrackings" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderTracking.list.headline')}</Link></li>
-                  <li><Link to="/orderTypes" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('orderType.list.headline')}</Link></li>
-                  <li><Link to="/partners" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('partner.list.headline')}</Link></li>
-                  <li><Link to="/partnerUnits" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('partnerUnit.list.headline')}</Link></li>
-                  <li><Link to="/passwordHistories" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('passwordHistory.list.headline')}</Link></li>
-                  <li><Link to="/portfolios" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('portfolio.list.headline')}</Link></li>
-                  <li><Link to="/productAreas" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('productArea.list.headline')}</Link></li>
-                  <li><Link to="/productCategories" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('productCategory.list.headline')}</Link></li>
-                  <li><Link to="/registrationRequests" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('registrationRequest.list.headline')}</Link></li>
-                  <li><Link to="/roles" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('role.list.headline')}</Link></li>
-                  <li><Link to="/specialNeedss" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('specialNeeds.list.headline')}</Link></li>
-                  <li><Link to="/tickets" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('ticket.list.headline')}</Link></li>
-                  <li><Link to="/ticketProperties" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('ticketProperty.list.headline')}</Link></li>
-                  <li><Link to="/ticketStatuses" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('ticketStatus.list.headline')}</Link></li>
-                  <li><Link to="/users" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('user.list.headline')}</Link></li>
-                  <li><Link to="/userStatuses" className="inline-block w-full hover:bg-gray-200 px-4 py-1">{t('userStatus.list.headline')}</Link></li>
-                </ul>
-              </li>
-            </ul>
           </div>
-        </nav>
+          
+          <div className="flex items-center">
+            {/* Botão de perfil ou outras ações */}
+            <div className="ml-4 flex items-center md:ml-6">
+              {/* Aqui você pode adicionar notificações, perfil do usuário, etc. */}
+              <div className="ml-3 relative">
+                <div>
+                  <button
+                    type="button"
+                    className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    id="user-menu"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    <span className="sr-only">Abrir menu do usuário</span>
+                    <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">
+                      {t('user.initial')}
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

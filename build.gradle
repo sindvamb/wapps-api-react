@@ -15,7 +15,7 @@ plugins {
     id 'org.springframework.boot' version '3.5.4'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'java'
-    id 'com.github.node-gradle.node' version '7.1.0'
+    id 'com.github.node-gradle.node' version '7.1.0'  // Versão mais recente do plugin Node.js
     id 'org.flywaydb.flyway' version '11.1.0'
 }
 
@@ -23,7 +23,7 @@ group = 'wastecnologia.wapps'
 version = '0.0.1-SNAPSHOT'
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(24)
     }
 }
 
@@ -34,6 +34,32 @@ bootRun {
 repositories {
     mavenCentral()
 }
+
+// Configuração do Node.js
+node {
+    version = '24.4.1'  // Versão instalada no sistema
+    npmVersion = '11.4.2'  // Versão do npm instalada
+    download = false  // Usa o Node.js já instalado
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir = file("${project.buildDir}/npm")
+    nodeProjectDir = file("${project.projectDir}")
+}
+
+// Tarefa personalizada para instalar as dependências
+task npmInstallDeps(type: NpmTask) {
+    description = 'Instala as dependências do Node.js'
+    group = 'build'
+    
+    // Força a instalação limpa
+    inputs.file('package.json')
+    outputs.dir('node_modules')
+    
+    // Comandos para limpar cache e instalar
+    args = ['install', '--no-audit', '--prefer-offline', '--legacy-peer-deps']
+}
+
+// Garante que o npmInstallDeps seja executado antes do npmInstall
+tasks.npmInstall.dependsOn(npmInstallDeps)
 
 // Configuração do Flyway
 flyway {
@@ -84,9 +110,11 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
+// Configuração mínima do Node.js
 node {
-    download.set(true)
-    version.set('22.17.1')
+    version = '24.4.1'
+    npmVersion = '11.4.2'
+    download = false
 }
 
 tasks.register('npmRunBuild', NpmTask) {

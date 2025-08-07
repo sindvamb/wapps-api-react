@@ -47,12 +47,16 @@ export default function CustomerEdit() {
     try {
       const customerTypeValuesResponse = await axios.get('/api/customers/customerTypeValues');
       setCustomerTypeValues(customerTypeValuesResponse.data);
+
       const partnerUnitValuesResponse = await axios.get('/api/customers/partnerUnitValues');
       setPartnerUnitValues(partnerUnitValuesResponse.data);
+
       const userValuesResponse = await axios.get('/api/customers/userValues');
       setUserValues(userValuesResponse.data);
+
       const data = (await axios.get('/api/customers/' + currentId)).data;
       useFormResult.reset(data);
+
     } catch (error: any) {
       handleServerError(error, navigate);
     }
