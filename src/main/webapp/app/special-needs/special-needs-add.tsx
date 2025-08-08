@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SpecialNeedsDTO } from 'app/special-needs/special-needs-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
@@ -32,7 +32,7 @@ export default function SpecialNeedsAdd() {
 
   const prepareRelations = async () => {
     try {
-      const userValuesResponse = await axios.get('/api/specialNeedss/userValues');
+      const userValuesResponse = await api.get("/api/specialNeedss/userValues");
       setUserValues(userValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -46,7 +46,7 @@ export default function SpecialNeedsAdd() {
   const createSpecialNeeds = async (data: SpecialNeedsDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/specialNeedss', data);
+      await api.post("/api/specialNeedss", data);
       navigate('/specialNeedss', {
             state: {
               msgSuccess: t('specialNeeds.create.success')

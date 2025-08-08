@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EventCustomerDTO } from 'app/event-customer/event-customer-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EventCustomerList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EventCustomerList() {
 
   const getAllEventCustomers = async () => {
     try {
-      const response = await axios.get('/api/eventCustomers');
+      const response = await api.get("/api/eventCustomers");
       setEventCustomers(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EventCustomerList() {
       return;
     }
     try {
-      await axios.delete('/api/eventCustomers/' + id);
+      await api.delete("/api/eventCustomers/" + id);
       navigate('/eventCustomers', {
             state: {
               msgInfo: t('eventCustomer.delete.success')

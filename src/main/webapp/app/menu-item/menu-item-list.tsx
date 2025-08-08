@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { MenuItemDTO } from 'app/menu-item/menu-item-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function MenuItemList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function MenuItemList() {
 
   const getAllMenuItems = async () => {
     try {
-      const response = await axios.get('/api/menuItems');
+      const response = await api.get("/api/menuItems");
       setMenuItems(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function MenuItemList() {
       return;
     }
     try {
-      await axios.delete('/api/menuItems/' + id);
+      await api.delete("/api/menuItems/" + id);
       navigate('/menuItems', {
             state: {
               msgInfo: t('menuItem.delete.success')

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderFileControlDTO } from 'app/order-file-control/order-file-control-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -35,11 +35,11 @@ export default function OrderFileControlEdit() {
 
   const prepareForm = async () => {
     try {
-      const fileControlValuesResponse = await axios.get('/api/orderFileControls/fileControlValues');
+      const fileControlValuesResponse = await api.get("/api/orderFileControls/fileControlValues");
       setFileControlValues(fileControlValuesResponse.data);
-      const orderValuesResponse = await axios.get('/api/orderFileControls/orderValues');
+      const orderValuesResponse = await api.get("/api/orderFileControls/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const data = (await axios.get('/api/orderFileControls/' + currentId)).data;
+      const data = (await api.get("/api/orderFileControls/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -53,7 +53,7 @@ export default function OrderFileControlEdit() {
   const updateOrderFileControl = async (data: OrderFileControlDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/orderFileControls/' + currentId, data);
+      await api.put("/api/orderFileControls/" + currentId, data);
       navigate('/orderFileControls', {
             state: {
               msgSuccess: t('orderFileControl.update.success')

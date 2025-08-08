@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { OrderFileControlDTO } from 'app/order-file-control/order-file-control-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function OrderFileControlList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function OrderFileControlList() {
 
   const getAllOrderFileControls = async () => {
     try {
-      const response = await axios.get('/api/orderFileControls');
+      const response = await api.get("/api/orderFileControls");
       setOrderFileControls(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function OrderFileControlList() {
       return;
     }
     try {
-      await axios.delete('/api/orderFileControls/' + id);
+      await api.delete("/api/orderFileControls/" + id);
       navigate('/orderFileControls', {
             state: {
               msgInfo: t('orderFileControl.delete.success')

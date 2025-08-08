@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderTrackingDTO } from 'app/order-tracking/order-tracking-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -33,7 +33,7 @@ export default function OrderTrackingAdd() {
 
   const prepareRelations = async () => {
     try {
-      const orderValuesResponse = await axios.get('/api/orderTrackings/orderValues');
+      const orderValuesResponse = await api.get("/api/orderTrackings/orderValues");
       setOrderValues(orderValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -47,7 +47,7 @@ export default function OrderTrackingAdd() {
   const createOrderTracking = async (data: OrderTrackingDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/orderTrackings', data);
+      await api.post("/api/orderTrackings", data);
       navigate('/orderTrackings', {
             state: {
               msgSuccess: t('orderTracking.create.success')

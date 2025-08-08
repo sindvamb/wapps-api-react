@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EfmigrationsHistoryDTO } from 'app/efmigrations-history/efmigrations-history-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -32,7 +32,7 @@ export default function EfmigrationsHistoryEdit() {
 
   const prepareForm = async () => {
     try {
-      const data = (await axios.get('/api/efmigrationsHistories/' + currentMigrationId)).data;
+      const data = (await api.get("/api/efmigrationsHistories/" + currentMigrationId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -46,7 +46,7 @@ export default function EfmigrationsHistoryEdit() {
   const updateEfmigrationsHistory = async (data: EfmigrationsHistoryDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/efmigrationsHistories/' + currentMigrationId, data);
+      await api.put("/api/efmigrationsHistories/" + currentMigrationId, data);
       navigate('/efmigrationsHistories', {
             state: {
               msgSuccess: t('efmigrationsHistory.update.success')

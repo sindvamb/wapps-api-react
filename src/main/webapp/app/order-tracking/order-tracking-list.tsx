@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { OrderTrackingDTO } from 'app/order-tracking/order-tracking-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function OrderTrackingList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function OrderTrackingList() {
 
   const getAllOrderTrackings = async () => {
     try {
-      const response = await axios.get('/api/orderTrackings');
+      const response = await api.get("/api/orderTrackings");
       setOrderTrackings(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function OrderTrackingList() {
       return;
     }
     try {
-      await axios.delete('/api/orderTrackings/' + id);
+      await api.delete("/api/orderTrackings/" + id);
       navigate('/orderTrackings', {
             state: {
               msgInfo: t('orderTracking.delete.success')

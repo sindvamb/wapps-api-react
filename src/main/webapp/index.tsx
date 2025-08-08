@@ -5,9 +5,9 @@ import i18n from 'i18next';
 import axios from 'axios';
 import translation from './translation.en.json';
 import translationPt from './translation.json';
-import AppRoutes from './app/routes';
 import './index.css';
-
+import { BrowserRouter } from "react-router-dom";
+import App from "./app/app";
 
 i18n
   .use(initReactI18next)
@@ -27,5 +27,9 @@ axios.defaults.baseURL = process.env.API_PATH;
 
 const root = document.getElementById('root')!!;
 ReactDOM.createRoot(root).render(
-  <AppRoutes />
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );

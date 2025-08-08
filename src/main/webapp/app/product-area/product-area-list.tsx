@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { ProductAreaDTO } from 'app/product-area/product-area-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function ProductAreaList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function ProductAreaList() {
 
   const getAllProductAreas = async () => {
     try {
-      const response = await axios.get('/api/productAreas');
+      const response = await api.get("/api/productAreas");
       setProductAreas(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function ProductAreaList() {
       return;
     }
     try {
-      await axios.delete('/api/productAreas/' + id);
+      await api.delete("/api/productAreas/" + id);
       navigate('/productAreas', {
             state: {
               msgInfo: t('productArea.delete.success')

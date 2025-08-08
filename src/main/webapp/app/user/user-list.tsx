@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { UserDTO } from 'app/user/user-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import useDocumentTitle from 'app/common/use-document-title';
-
 
 export default function UserList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function UserList() {
 
   const getAllUsers = async () => {
     try {
-      const response = await axios.get('/api/users');
+      const response = await api.get("/api/users");
       setUsers(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function UserList() {
       return;
     }
     try {
-      await axios.delete('/api/users/' + id);
+      await api.delete("/api/users/" + id);
       navigate('/users', {
             state: {
               msgInfo: t('user.delete.success')

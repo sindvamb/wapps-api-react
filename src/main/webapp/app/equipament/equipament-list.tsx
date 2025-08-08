@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EquipamentDTO } from 'app/equipament/equipament-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EquipamentList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EquipamentList() {
 
   const getAllEquipaments = async () => {
     try {
-      const response = await axios.get('/api/equipaments');
+      const response = await api.get("/api/equipaments");
       setEquipaments(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EquipamentList() {
       return;
     }
     try {
-      await axios.delete('/api/equipaments/' + id);
+      await api.delete("/api/equipaments/" + id);
       navigate('/equipaments', {
             state: {
               msgInfo: t('equipament.delete.success')

@@ -83,7 +83,10 @@ module.exports = (env, argv) => ({
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin({})],
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    alias: {
+      'app': path.resolve(__dirname, 'src/main/webapp/app')
+    }
   },
   devServer: {
     port: 3000,

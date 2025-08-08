@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { OrderEmailDTO } from 'app/order-email/order-email-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function OrderEmailList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function OrderEmailList() {
 
   const getAllOrderEmails = async () => {
     try {
-      const response = await axios.get('/api/orderEmails');
+      const response = await api.get("/api/orderEmails");
       setOrderEmails(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function OrderEmailList() {
       return;
     }
     try {
-      await axios.delete('/api/orderEmails/' + id);
+      await api.delete("/api/orderEmails/" + id);
       navigate('/orderEmails', {
             state: {
               msgInfo: t('orderEmail.delete.success')

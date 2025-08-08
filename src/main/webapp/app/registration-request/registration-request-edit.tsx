@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegistrationRequestDTO } from 'app/registration-request/registration-request-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -37,9 +37,9 @@ export default function RegistrationRequestEdit() {
 
   const prepareForm = async () => {
     try {
-      const userValuesResponse = await axios.get('/api/registrationRequests/userValues');
+      const userValuesResponse = await api.get("/api/registrationRequests/userValues");
       setUserValues(userValuesResponse.data);
-      const data = (await axios.get('/api/registrationRequests/' + currentId)).data;
+      const data = (await api.get("/api/registrationRequests/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -53,7 +53,7 @@ export default function RegistrationRequestEdit() {
   const updateRegistrationRequest = async (data: RegistrationRequestDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/registrationRequests/' + currentId, data);
+      await api.put("/api/registrationRequests/" + currentId, data);
       navigate('/registrationRequests', {
             state: {
               msgSuccess: t('registrationRequest.update.success')

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CompanyDTO } from 'app/company/company-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -70,11 +70,11 @@ export default function CompanyEdit() {
 
   const prepareForm = async () => {
     try {
-      const addressValuesResponse = await axios.get('/api/companies/addressValues');
+      const addressValuesResponse = await api.get("/api/companies/addressValues");
       setAddressValues(addressValuesResponse.data);
-      const customerValuesResponse = await axios.get('/api/companies/customerValues');
+      const customerValuesResponse = await api.get("/api/companies/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const data = (await axios.get('/api/companies/' + currentId)).data;
+      const data = (await api.get("/api/companies/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -88,7 +88,7 @@ export default function CompanyEdit() {
   const updateCompany = async (data: CompanyDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/companies/' + currentId, data);
+      await api.put("/api/companies/" + currentId, data);
       navigate('/companies', {
             state: {
               msgSuccess: t('company.update.success')

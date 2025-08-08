@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { OrderTypeDTO } from 'app/order-type/order-type-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function OrderTypeList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function OrderTypeList() {
 
   const getAllOrderTypes = async () => {
     try {
-      const response = await axios.get('/api/orderTypes');
+      const response = await api.get("/api/orderTypes");
       setOrderTypes(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function OrderTypeList() {
       return;
     }
     try {
-      await axios.delete('/api/orderTypes/' + id);
+      await api.delete("/api/orderTypes/" + id);
       navigate('/orderTypes', {
             state: {
               msgInfo: t('orderType.delete.success')

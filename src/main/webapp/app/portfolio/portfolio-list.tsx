@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { PortfolioDTO } from 'app/portfolio/portfolio-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function PortfolioList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function PortfolioList() {
 
   const getAllPortfolios = async () => {
     try {
-      const response = await axios.get('/api/portfolios');
+      const response = await api.get("/api/portfolios");
       setPortfolios(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function PortfolioList() {
       return;
     }
     try {
-      await axios.delete('/api/portfolios/' + id);
+      await api.delete("/api/portfolios/" + id);
       navigate('/portfolios', {
             state: {
               msgInfo: t('portfolio.delete.success')

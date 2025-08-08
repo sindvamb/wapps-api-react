@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EventDTO } from 'app/event/event-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EventList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EventList() {
 
   const getAllEvents = async () => {
     try {
-      const response = await axios.get('/api/events');
+      const response = await api.get("/api/events");
       setEvents(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EventList() {
       return;
     }
     try {
-      await axios.delete('/api/events/' + id);
+      await api.delete("/api/events/" + id);
       navigate('/events', {
             state: {
               msgInfo: t('event.delete.success')

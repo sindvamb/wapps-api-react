@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { UserDTO } from 'app/user/user-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
@@ -77,15 +77,15 @@ export default function UserAdd() {
 
   const prepareRelations = async () => {
     try {
-      const addressValuesResponse = await axios.get('/api/users/addressValues');
+      const addressValuesResponse = await api.get("/api/users/addressValues");
       setAddressValues(addressValuesResponse.data);
-      const educationDegreeValuesResponse = await axios.get('/api/users/educationDegreeValues');
+      const educationDegreeValuesResponse = await api.get("/api/users/educationDegreeValues");
       setEducationDegreeValues(educationDegreeValuesResponse.data);
-      const partnerUnitValuesResponse = await axios.get('/api/users/partnerUnitValues');
+      const partnerUnitValuesResponse = await api.get("/api/users/partnerUnitValues");
       setPartnerUnitValues(partnerUnitValuesResponse.data);
-      const roleValuesResponse = await axios.get('/api/users/roleValues');
+      const roleValuesResponse = await api.get("/api/users/roleValues");
       setRoleValues(roleValuesResponse.data);
-      const userStatusValuesResponse = await axios.get('/api/users/userStatusValues');
+      const userStatusValuesResponse = await api.get("/api/users/userStatusValues");
       setUserStatusValues(userStatusValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -99,7 +99,7 @@ export default function UserAdd() {
   const createUser = async (data: UserDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/users', data);
+      await api.post("/api/users", data);
       navigate('/users', {
             state: {
               msgSuccess: t('user.create.success')

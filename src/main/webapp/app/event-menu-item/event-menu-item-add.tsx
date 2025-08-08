@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EventMenuItemDTO } from 'app/event-menu-item/event-menu-item-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -35,11 +35,11 @@ export default function EventMenuItemAdd() {
 
   const prepareRelations = async () => {
     try {
-      const companyValuesResponse = await axios.get('/api/eventMenuItems/companyValues');
+      const companyValuesResponse = await api.get("/api/eventMenuItems/companyValues");
       setCompanyValues(companyValuesResponse.data);
-      const menuItemValuesResponse = await axios.get('/api/eventMenuItems/menuItemValues');
+      const menuItemValuesResponse = await api.get("/api/eventMenuItems/menuItemValues");
       setMenuItemValues(menuItemValuesResponse.data);
-      const menuValuesResponse = await axios.get('/api/eventMenuItems/menuValues');
+      const menuValuesResponse = await api.get("/api/eventMenuItems/menuValues");
       setMenuValues(menuValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -53,7 +53,7 @@ export default function EventMenuItemAdd() {
   const createEventMenuItem = async (data: EventMenuItemDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/eventMenuItems', data);
+      await api.post("/api/eventMenuItems", data);
       navigate('/eventMenuItems', {
             state: {
               msgSuccess: t('eventMenuItem.create.success')

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EventEquipamentDTO } from 'app/event-equipament/event-equipament-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EventEquipamentList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EventEquipamentList() {
 
   const getAllEventEquipaments = async () => {
     try {
-      const response = await axios.get('/api/eventEquipaments');
+      const response = await api.get("/api/eventEquipaments");
       setEventEquipaments(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EventEquipamentList() {
       return;
     }
     try {
-      await axios.delete('/api/eventEquipaments/' + id);
+      await api.delete("/api/eventEquipaments/" + id);
       navigate('/eventEquipaments', {
             state: {
               msgInfo: t('eventEquipament.delete.success')

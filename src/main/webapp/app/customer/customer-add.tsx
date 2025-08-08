@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CustomerDTO } from 'app/customer/customer-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -43,11 +43,11 @@ export default function CustomerAdd() {
 
   const prepareRelations = async () => {
     try {
-      const customerTypeValuesResponse = await axios.get('/api/customers/customerTypeValues');
+      const customerTypeValuesResponse = await api.get("/api/customers/customerTypeValues");
       setCustomerTypeValues(customerTypeValuesResponse.data);
-      const partnerUnitValuesResponse = await axios.get('/api/customers/partnerUnitValues');
+      const partnerUnitValuesResponse = await api.get("/api/customers/partnerUnitValues");
       setPartnerUnitValues(partnerUnitValuesResponse.data);
-      const userValuesResponse = await axios.get('/api/customers/userValues');
+      const userValuesResponse = await api.get("/api/customers/userValues");
       setUserValues(userValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -61,7 +61,7 @@ export default function CustomerAdd() {
   const createCustomer = async (data: CustomerDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/customers', data);
+      await api.post("/api/customers", data);
       navigate('/customers', {
             state: {
               msgSuccess: t('customer.create.success')

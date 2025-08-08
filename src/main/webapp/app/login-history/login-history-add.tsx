@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginHistoryDTO } from 'app/login-history/login-history-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -35,7 +35,7 @@ export default function LoginHistoryAdd() {
 
   const prepareRelations = async () => {
     try {
-      const userValuesResponse = await axios.get('/api/loginHistories/userValues');
+      const userValuesResponse = await api.get("/api/loginHistories/userValues");
       setUserValues(userValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -49,7 +49,7 @@ export default function LoginHistoryAdd() {
   const createLoginHistory = async (data: LoginHistoryDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/loginHistories', data);
+      await api.post("/api/loginHistories", data);
       navigate('/loginHistories', {
             state: {
               msgSuccess: t('loginHistory.create.success')

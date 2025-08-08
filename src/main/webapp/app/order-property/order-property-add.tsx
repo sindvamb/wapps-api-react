@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderPropertyDTO } from 'app/order-property/order-property-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -32,7 +32,7 @@ export default function OrderPropertyAdd() {
 
   const prepareRelations = async () => {
     try {
-      const orderValuesResponse = await axios.get('/api/orderProperties/orderValues');
+      const orderValuesResponse = await api.get("/api/orderProperties/orderValues");
       setOrderValues(orderValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -46,7 +46,7 @@ export default function OrderPropertyAdd() {
   const createOrderProperty = async (data: OrderPropertyDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/orderProperties', data);
+      await api.post("/api/orderProperties", data);
       navigate('/orderProperties', {
             state: {
               msgSuccess: t('orderProperty.create.success')

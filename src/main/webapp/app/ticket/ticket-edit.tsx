@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TicketDTO } from 'app/ticket/ticket-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
@@ -47,13 +47,13 @@ export default function TicketEdit() {
 
   const prepareForm = async () => {
     try {
-      const customerValuesResponse = await axios.get('/api/tickets/customerValues');
+      const customerValuesResponse = await api.get("/api/tickets/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const orderValuesResponse = await axios.get('/api/tickets/orderValues');
+      const orderValuesResponse = await api.get("/api/tickets/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const ticketStatusValuesResponse = await axios.get('/api/tickets/ticketStatusValues');
+      const ticketStatusValuesResponse = await api.get("/api/tickets/ticketStatusValues");
       setTicketStatusValues(ticketStatusValuesResponse.data);
-      const data = (await axios.get('/api/tickets/' + currentId)).data;
+      const data = (await api.get("/api/tickets/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -67,7 +67,7 @@ export default function TicketEdit() {
   const updateTicket = async (data: TicketDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/tickets/' + currentId, data);
+      await api.put("/api/tickets/" + currentId, data);
       navigate('/tickets', {
             state: {
               msgSuccess: t('ticket.update.success')

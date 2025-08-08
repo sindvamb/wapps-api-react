@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { AddressDTO } from 'app/address/address-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function AddressList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function AddressList() {
 
   const getAllAddresses = async () => {
     try {
-      const response = await axios.get('/api/addresses');
+      const response = await api.get("/api/addresses");
       setAddresses(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function AddressList() {
       return;
     }
     try {
-      await axios.delete('/api/addresses/' + id);
+      await api.delete("/api/addresses/" + id);
       navigate('/addresses', {
             state: {
               msgInfo: t('address.delete.success')

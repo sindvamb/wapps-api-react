@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { ContactRequestDTO } from 'app/contact-request/contact-request-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function ContactRequestList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function ContactRequestList() {
 
   const getAllContactRequests = async () => {
     try {
-      const response = await axios.get('/api/contactRequests');
+      const response = await api.get("/api/contactRequests");
       setContactRequests(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function ContactRequestList() {
       return;
     }
     try {
-      await axios.delete('/api/contactRequests/' + id);
+      await api.delete("/api/contactRequests/" + id);
       navigate('/contactRequests', {
             state: {
               msgInfo: t('contactRequest.delete.success')

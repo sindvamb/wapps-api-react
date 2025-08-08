@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderPropertyDTO } from 'app/order-property/order-property-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -34,9 +34,9 @@ export default function OrderPropertyEdit() {
 
   const prepareForm = async () => {
     try {
-      const orderValuesResponse = await axios.get('/api/orderProperties/orderValues');
+      const orderValuesResponse = await api.get("/api/orderProperties/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const data = (await axios.get('/api/orderProperties/' + currentId)).data;
+      const data = (await api.get("/api/orderProperties/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -50,7 +50,7 @@ export default function OrderPropertyEdit() {
   const updateOrderProperty = async (data: OrderPropertyDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/orderProperties/' + currentId, data);
+      await api.put("/api/orderProperties/" + currentId, data);
       navigate('/orderProperties', {
             state: {
               msgSuccess: t('orderProperty.update.success')

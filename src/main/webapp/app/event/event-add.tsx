@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EventDTO } from 'app/event/event-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -52,7 +52,7 @@ export default function EventAdd() {
   const createEvent = async (data: EventDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/events', data);
+      await api.post("/api/events", data);
       navigate('/events', {
             state: {
               msgSuccess: t('event.create.success')

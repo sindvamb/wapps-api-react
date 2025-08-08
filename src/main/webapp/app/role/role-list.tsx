@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { RoleDTO } from 'app/role/role-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import useDocumentTitle from 'app/common/use-document-title';
-
 
 export default function RoleList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function RoleList() {
 
   const getAllRoles = async () => {
     try {
-      const response = await axios.get('/api/roles');
+      const response = await api.get("/api/roles");
       setRoles(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function RoleList() {
       return;
     }
     try {
-      await axios.delete('/api/roles/' + id);
+      await api.delete("/api/roles/" + id);
       navigate('/roles', {
             state: {
               msgInfo: t('role.delete.success')

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TicketDTO } from 'app/ticket/ticket-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
@@ -45,11 +45,11 @@ export default function TicketAdd() {
 
   const prepareRelations = async () => {
     try {
-      const customerValuesResponse = await axios.get('/api/tickets/customerValues');
+      const customerValuesResponse = await api.get("/api/tickets/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const orderValuesResponse = await axios.get('/api/tickets/orderValues');
+      const orderValuesResponse = await api.get("/api/tickets/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const ticketStatusValuesResponse = await axios.get('/api/tickets/ticketStatusValues');
+      const ticketStatusValuesResponse = await api.get("/api/tickets/ticketStatusValues");
       setTicketStatusValues(ticketStatusValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -63,7 +63,7 @@ export default function TicketAdd() {
   const createTicket = async (data: TicketDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/tickets', data);
+      await api.post("/api/tickets", data);
       navigate('/tickets', {
             state: {
               msgSuccess: t('ticket.create.success')

@@ -3,18 +3,25 @@
     "title": "Api"
   },
   "navigation": {
+    "title": "Navegação",
     "toggle": "Alternar navegação",
     "home": "Início",
-    "entities": "Entidades",
+    "expand": "Expandir",
+    "collapse": "Recolher",
     "groups": {
-      "administration": "Administraçãoo",
-      "customers": "Cliente",
-      "companies": "Empresas",
-      "contacts": "Contatos",
+      "administration": "Administração",
       "events": "Eventos",
-      "orders": "Vendas",
-      "products": "Produtos",
-      "others": "Outros"
+      "catalog": "Catálogo"
+    },
+    "items": {
+      "accessControls": "Controles de Acesso",
+      "users": "Usuários",
+      "companies": "Empresas",
+      "events": "Eventos",
+      "eventEmployees": "Funcionários do Evento",
+      "eventMenus": "Cardápios do Evento",
+      "educationDegrees": "Níveis de Ensino",
+      "positions": "Cargos"
     }
   },
   "home": {

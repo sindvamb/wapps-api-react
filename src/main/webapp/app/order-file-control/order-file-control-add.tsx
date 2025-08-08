@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderFileControlDTO } from 'app/order-file-control/order-file-control-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -33,9 +33,9 @@ export default function OrderFileControlAdd() {
 
   const prepareRelations = async () => {
     try {
-      const fileControlValuesResponse = await axios.get('/api/orderFileControls/fileControlValues');
+      const fileControlValuesResponse = await api.get("/api/orderFileControls/fileControlValues");
       setFileControlValues(fileControlValuesResponse.data);
-      const orderValuesResponse = await axios.get('/api/orderFileControls/orderValues');
+      const orderValuesResponse = await api.get("/api/orderFileControls/orderValues");
       setOrderValues(orderValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -49,7 +49,7 @@ export default function OrderFileControlAdd() {
   const createOrderFileControl = async (data: OrderFileControlDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/orderFileControls', data);
+      await api.post("/api/orderFileControls", data);
       navigate('/orderFileControls', {
             state: {
               msgSuccess: t('orderFileControl.create.success')

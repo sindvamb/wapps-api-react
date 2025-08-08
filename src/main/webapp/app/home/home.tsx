@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 import useDocumentTitle from 'app/common/use-document-title';
 import './home.css';

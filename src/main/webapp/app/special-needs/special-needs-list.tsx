@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { SpecialNeedsDTO } from 'app/special-needs/special-needs-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import useDocumentTitle from 'app/common/use-document-title';
-
 
 export default function SpecialNeedsList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function SpecialNeedsList() {
 
   const getAllSpecialNeedses = async () => {
     try {
-      const response = await axios.get('/api/specialNeedss');
+      const response = await api.get("/api/specialNeedss");
       setSpecialNeedses(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function SpecialNeedsList() {
       return;
     }
     try {
-      await axios.delete('/api/specialNeedss/' + id);
+      await api.delete("/api/specialNeedss/" + id);
       navigate('/specialNeedss', {
             state: {
               msgInfo: t('specialNeeds.delete.success')

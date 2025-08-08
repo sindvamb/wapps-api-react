@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderTypeDTO } from 'app/order-type/order-type-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -33,7 +33,7 @@ export default function OrderTypeEdit() {
 
   const prepareForm = async () => {
     try {
-      const data = (await axios.get('/api/orderTypes/' + currentId)).data;
+      const data = (await api.get("/api/orderTypes/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -47,7 +47,7 @@ export default function OrderTypeEdit() {
   const updateOrderType = async (data: OrderTypeDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/orderTypes/' + currentId, data);
+      await api.put("/api/orderTypes/" + currentId, data);
       navigate('/orderTypes', {
             state: {
               msgSuccess: t('orderType.update.success')

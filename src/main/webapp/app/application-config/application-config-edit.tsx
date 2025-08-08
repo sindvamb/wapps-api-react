@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ApplicationConfigDTO } from 'app/application-config/application-config-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -40,7 +40,7 @@ export default function ApplicationConfigEdit() {
 
   const prepareForm = async () => {
     try {
-      const data = (await axios.get('/api/applicationConfigs/' + currentId)).data;
+      const data = (await api.get("/api/applicationConfigs/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -54,7 +54,7 @@ export default function ApplicationConfigEdit() {
   const updateApplicationConfig = async (data: ApplicationConfigDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/applicationConfigs/' + currentId, data);
+      await api.put("/api/applicationConfigs/" + currentId, data);
       navigate('/applicationConfigs', {
             state: {
               msgSuccess: t('applicationConfig.update.success')

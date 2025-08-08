@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { DependentDTO } from 'app/dependent/dependent-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function DependentList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function DependentList() {
 
   const getAllDependents = async () => {
     try {
-      const response = await axios.get('/api/dependents');
+      const response = await api.get("/api/dependents");
       setDependents(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function DependentList() {
       return;
     }
     try {
-      await axios.delete('/api/dependents/' + id);
+      await api.delete("/api/dependents/" + id);
       navigate('/dependents', {
             state: {
               msgInfo: t('dependent.delete.success')

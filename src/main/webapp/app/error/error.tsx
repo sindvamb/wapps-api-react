@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getReasonPhrase } from 'http-status-codes';
 import useDocumentTitle from 'app/common/use-document-title';

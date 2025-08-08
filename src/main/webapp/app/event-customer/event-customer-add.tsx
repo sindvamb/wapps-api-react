@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EventCustomerDTO } from 'app/event-customer/event-customer-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -37,11 +37,11 @@ export default function EventCustomerAdd() {
 
   const prepareRelations = async () => {
     try {
-      const companyValuesResponse = await axios.get('/api/eventCustomers/companyValues');
+      const companyValuesResponse = await api.get("/api/eventCustomers/companyValues");
       setCompanyValues(companyValuesResponse.data);
-      const customerValuesResponse = await axios.get('/api/eventCustomers/customerValues');
+      const customerValuesResponse = await api.get("/api/eventCustomers/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const eventValuesResponse = await axios.get('/api/eventCustomers/eventValues');
+      const eventValuesResponse = await api.get("/api/eventCustomers/eventValues");
       setEventValues(eventValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -55,7 +55,7 @@ export default function EventCustomerAdd() {
   const createEventCustomer = async (data: EventCustomerDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/eventCustomers', data);
+      await api.post("/api/eventCustomers", data);
       navigate('/eventCustomers', {
             state: {
               msgSuccess: t('eventCustomer.create.success')

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EventEmployeeDTO } from 'app/event-employee/event-employee-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EventEmployeeList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EventEmployeeList() {
 
   const getAllEventEmployees = async () => {
     try {
-      const response = await axios.get('/api/eventEmployees');
+      const response = await api.get("/api/eventEmployees");
       setEventEmployees(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EventEmployeeList() {
       return;
     }
     try {
-      await axios.delete('/api/eventEmployees/' + id);
+      await api.delete("/api/eventEmployees/" + id);
       navigate('/eventEmployees', {
             state: {
               msgInfo: t('eventEmployee.delete.success')

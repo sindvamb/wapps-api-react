@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CustomerOrderDTO } from 'app/customer-order/customer-order-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -47,11 +47,11 @@ export default function CustomerOrderEdit() {
 
   const prepareForm = async () => {
     try {
-      const customerValuesResponse = await axios.get('/api/customerOrders/customerValues');
+      const customerValuesResponse = await api.get("/api/customerOrders/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const orderValuesResponse = await axios.get('/api/customerOrders/orderValues');
+      const orderValuesResponse = await api.get("/api/customerOrders/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const data = (await axios.get('/api/customerOrders/' + currentId)).data;
+      const data = (await api.get("/api/customerOrders/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -65,7 +65,7 @@ export default function CustomerOrderEdit() {
   const updateCustomerOrder = async (data: CustomerOrderDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/customerOrders/' + currentId, data);
+      await api.put("/api/customerOrders/" + currentId, data);
       navigate('/customerOrders', {
             state: {
               msgSuccess: t('customerOrder.update.success')

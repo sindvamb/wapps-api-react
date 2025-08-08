@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EfmigrationsHistoryDTO } from 'app/efmigrations-history/efmigrations-history-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
+import api from 'app/services/api';
 
 
 export default function EfmigrationsHistoryList() {
@@ -16,7 +16,7 @@ export default function EfmigrationsHistoryList() {
 
   const getAllEfmigrationsHistories = async () => {
     try {
-      const response = await axios.get('/api/efmigrationsHistories');
+      const response = await api.get("/api/efmigrationsHistories");
       setEfmigrationsHistories(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +28,7 @@ export default function EfmigrationsHistoryList() {
       return;
     }
     try {
-      await axios.delete('/api/efmigrationsHistories/' + migrationId);
+      await api.delete("/api/efmigrationsHistories/" + migrationId);
       navigate('/efmigrationsHistories', {
             state: {
               msgInfo: t('efmigrationsHistory.delete.success')

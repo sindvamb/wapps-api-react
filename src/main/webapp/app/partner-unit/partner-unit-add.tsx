@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PartnerUnitDTO } from 'app/partner-unit/partner-unit-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -42,7 +42,7 @@ export default function PartnerUnitAdd() {
 
   const prepareRelations = async () => {
     try {
-      const partnerValuesResponse = await axios.get('/api/partnerUnits/partnerValues');
+      const partnerValuesResponse = await api.get("/api/partnerUnits/partnerValues");
       setPartnerValues(partnerValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -56,7 +56,7 @@ export default function PartnerUnitAdd() {
   const createPartnerUnit = async (data: PartnerUnitDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/partnerUnits', data);
+      await api.post("/api/partnerUnits", data);
       navigate('/partnerUnits', {
             state: {
               msgSuccess: t('partnerUnit.create.success')

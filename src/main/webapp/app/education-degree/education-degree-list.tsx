@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { EducationDegreeDTO } from 'app/education-degree/education-degree-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function EducationDegreeList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function EducationDegreeList() {
 
   const getAllEducationDegrees = async () => {
     try {
-      const response = await axios.get('/api/educationDegrees');
+      const response = await api.get("/api/educationDegrees");
       setEducationDegrees(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function EducationDegreeList() {
       return;
     }
     try {
-      await axios.delete('/api/educationDegrees/' + id);
+      await api.delete("/api/educationDegrees/" + id);
       navigate('/educationDegrees', {
             state: {
               msgInfo: t('educationDegree.delete.success')

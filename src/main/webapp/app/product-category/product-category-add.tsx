@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ProductCategoryDTO } from 'app/product-category/product-category-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -32,7 +32,7 @@ export default function ProductCategoryAdd() {
   const createProductCategory = async (data: ProductCategoryDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/productCategories', data);
+      await api.post("/api/productCategories", data);
       navigate('/productCategories', {
             state: {
               msgSuccess: t('productCategory.create.success')

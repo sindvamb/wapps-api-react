@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { OrderEmailDTO } from 'app/order-email/order-email-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -36,11 +36,11 @@ export default function OrderEmailEdit() {
 
   const prepareForm = async () => {
     try {
-      const orderValuesResponse = await axios.get('/api/orderEmails/orderValues');
+      const orderValuesResponse = await api.get("/api/orderEmails/orderValues");
       setOrderValues(orderValuesResponse.data);
-      const ticketValuesResponse = await axios.get('/api/orderEmails/ticketValues');
+      const ticketValuesResponse = await api.get("/api/orderEmails/ticketValues");
       setTicketValues(ticketValuesResponse.data);
-      const data = (await axios.get('/api/orderEmails/' + currentId)).data;
+      const data = (await api.get("/api/orderEmails/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -54,7 +54,7 @@ export default function OrderEmailEdit() {
   const updateOrderEmail = async (data: OrderEmailDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/orderEmails/' + currentId, data);
+      await api.put("/api/orderEmails/" + currentId, data);
       navigate('/orderEmails', {
             state: {
               msgSuccess: t('orderEmail.update.success')

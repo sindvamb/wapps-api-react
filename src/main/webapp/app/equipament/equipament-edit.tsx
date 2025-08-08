@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EquipamentDTO } from 'app/equipament/equipament-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -39,9 +39,9 @@ export default function EquipamentEdit() {
 
   const prepareForm = async () => {
     try {
-      const companyValuesResponse = await axios.get('/api/equipaments/companyValues');
+      const companyValuesResponse = await api.get("/api/equipaments/companyValues");
       setCompanyValues(companyValuesResponse.data);
-      const data = (await axios.get('/api/equipaments/' + currentId)).data;
+      const data = (await api.get("/api/equipaments/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -55,7 +55,7 @@ export default function EquipamentEdit() {
   const updateEquipament = async (data: EquipamentDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/equipaments/' + currentId, data);
+      await api.put("/api/equipaments/" + currentId, data);
       navigate('/equipaments', {
             state: {
               msgSuccess: t('equipament.update.success')

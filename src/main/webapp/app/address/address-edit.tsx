@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AddressDTO } from 'app/address/address-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -41,7 +41,7 @@ export default function AddressEdit() {
 
   const prepareForm = async () => {
     try {
-      const data = (await axios.get('/api/addresses/' + currentId)).data;
+      const data = (await api.get("/api/addresses/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -55,7 +55,7 @@ export default function AddressEdit() {
   const updateAddress = async (data: AddressDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/addresses/' + currentId, data);
+      await api.put("/api/addresses/" + currentId, data);
       navigate('/addresses', {
             state: {
               msgSuccess: t('address.update.success')

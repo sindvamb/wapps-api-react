@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { DependentDTO } from 'app/dependent/dependent-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -38,9 +38,9 @@ export default function DependentEdit() {
 
   const prepareForm = async () => {
     try {
-      const customerValuesResponse = await axios.get('/api/dependents/customerValues');
+      const customerValuesResponse = await api.get("/api/dependents/customerValues");
       setCustomerValues(customerValuesResponse.data);
-      const data = (await axios.get('/api/dependents/' + currentId)).data;
+      const data = (await api.get("/api/dependents/" + currentId)).data;
       useFormResult.reset(data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -54,7 +54,7 @@ export default function DependentEdit() {
   const updateDependent = async (data: DependentDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/dependents/' + currentId, data);
+      await api.put("/api/dependents/" + currentId, data);
       navigate('/dependents', {
             state: {
               msgSuccess: t('dependent.update.success')

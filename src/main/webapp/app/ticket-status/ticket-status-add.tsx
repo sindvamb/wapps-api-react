@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TicketStatusDTO } from 'app/ticket-status/ticket-status-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
@@ -32,7 +32,7 @@ export default function TicketStatusAdd() {
   const createTicketStatus = async (data: TicketStatusDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/ticketStatuses', data);
+      await api.post("/api/ticketStatuses", data);
       navigate('/ticketStatuses', {
             state: {
               msgSuccess: t('ticketStatus.create.success')

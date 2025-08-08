@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FileControlDTO } from 'app/file-control/file-control-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -50,19 +50,19 @@ export default function FileControlAdd() {
 
   const prepareRelations = async () => {
     try {
-      const companyValuesResponse = await axios.get('/api/fileControls/companyValues');
+      const companyValuesResponse = await api.get("/api/fileControls/companyValues");
       setCompanyValues(companyValuesResponse.data);
-      const dependentValuesResponse = await axios.get('/api/fileControls/dependentValues');
+      const dependentValuesResponse = await api.get("/api/fileControls/dependentValues");
       setDependentValues(dependentValuesResponse.data);
-      const eventCustomerValuesResponse = await axios.get('/api/fileControls/eventCustomerValues');
+      const eventCustomerValuesResponse = await api.get("/api/fileControls/eventCustomerValues");
       setEventCustomerValues(eventCustomerValuesResponse.data);
-      const eventValuesResponse = await axios.get('/api/fileControls/eventValues');
+      const eventValuesResponse = await api.get("/api/fileControls/eventValues");
       setEventValues(eventValuesResponse.data);
-      const layoutValuesResponse = await axios.get('/api/fileControls/layoutValues');
+      const layoutValuesResponse = await api.get("/api/fileControls/layoutValues");
       setLayoutValues(layoutValuesResponse.data);
-      const portfolioValuesResponse = await axios.get('/api/fileControls/portfolioValues');
+      const portfolioValuesResponse = await api.get("/api/fileControls/portfolioValues");
       setPortfolioValues(portfolioValuesResponse.data);
-      const userValuesResponse = await axios.get('/api/fileControls/userValues');
+      const userValuesResponse = await api.get("/api/fileControls/userValues");
       setUserValues(userValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -76,7 +76,7 @@ export default function FileControlAdd() {
   const createFileControl = async (data: FileControlDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/fileControls', data);
+      await api.post("/api/fileControls", data);
       navigate('/fileControls', {
             state: {
               msgSuccess: t('fileControl.create.success')

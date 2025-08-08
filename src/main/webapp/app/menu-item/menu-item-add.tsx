@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { MenuItemDTO } from 'app/menu-item/menu-item-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -37,7 +37,7 @@ export default function MenuItemAdd() {
 
   const prepareRelations = async () => {
     try {
-      const menuValuesResponse = await axios.get('/api/menuItems/menuValues');
+      const menuValuesResponse = await api.get("/api/menuItems/menuValues");
       setMenuValues(menuValuesResponse.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -51,7 +51,7 @@ export default function MenuItemAdd() {
   const createMenuItem = async (data: MenuItemDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/menuItems', data);
+      await api.post("/api/menuItems", data);
       navigate('/menuItems', {
             state: {
               msgSuccess: t('menuItem.create.success')

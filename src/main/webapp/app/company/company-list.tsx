@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { CompanyDTO } from 'app/company/company-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function CompanyList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function CompanyList() {
 
   const getAllCompanies = async () => {
     try {
-      const response = await axios.get('/api/companies');
+      const response = await api.get("/api/companies");
       setCompanies(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function CompanyList() {
       return;
     }
     try {
-      await axios.delete('/api/companies/' + id);
+      await api.delete("/api/companies/" + id);
       navigate('/companies', {
             state: {
               msgInfo: t('company.delete.success')

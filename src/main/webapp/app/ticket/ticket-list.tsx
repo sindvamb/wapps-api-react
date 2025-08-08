@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { TicketDTO } from 'app/ticket/ticket-model';
-import axios from 'axios';
+import api from 'app/services/api';
 import useDocumentTitle from 'app/common/use-document-title';
-
 
 export default function TicketList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function TicketList() {
 
   const getAllTickets = async () => {
     try {
-      const response = await axios.get('/api/tickets');
+      const response = await api.get("/api/tickets");
       setTickets(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function TicketList() {
       return;
     }
     try {
-      await axios.delete('/api/tickets/' + id);
+      await api.delete("/api/tickets/" + id);
       navigate('/tickets', {
             state: {
               msgInfo: t('ticket.delete.success')

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError } from 'app/common/utils';
 import { OrderStatusDTO } from 'app/order-status/order-status-model';
-import axios from 'axios';
 import useDocumentTitle from 'app/common/use-document-title';
-
+import api from 'app/services/api';
 
 export default function OrderStatusList() {
   const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function OrderStatusList() {
 
   const getAllOrderStatuses = async () => {
     try {
-      const response = await axios.get('/api/orderStatuses');
+      const response = await api.get("/api/orderStatuses");
       setOrderStatuses(response.data);
     } catch (error: any) {
       handleServerError(error, navigate);
@@ -28,7 +27,7 @@ export default function OrderStatusList() {
       return;
     }
     try {
-      await axios.delete('/api/orderStatuses/' + id);
+      await api.delete("/api/orderStatuses/" + id);
       navigate('/orderStatuses', {
             state: {
               msgInfo: t('orderStatus.delete.success')

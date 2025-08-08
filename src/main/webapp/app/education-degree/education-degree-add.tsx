@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EducationDegreeDTO } from 'app/education-degree/education-degree-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -32,7 +32,7 @@ export default function EducationDegreeAdd() {
   const createEducationDegree = async (data: EducationDegreeDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.post('/api/educationDegrees', data);
+      await api.post("/api/educationDegrees", data);
       navigate('/educationDegrees', {
             state: {
               msgSuccess: t('educationDegree.create.success')

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { handleServerError, setYupDefaults } from 'app/common/utils';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CustomerDTO } from 'app/customer/customer-model';
-import axios from 'axios';
 import InputRow from 'app/common/input-row/input-row';
 import useDocumentTitle from 'app/common/use-document-title';
 import * as yup from 'yup';
+import api from 'app/services/api';
 
 
 function getSchema() {
@@ -45,16 +45,16 @@ export default function CustomerEdit() {
 
   const prepareForm = async () => {
     try {
-      const customerTypeValuesResponse = await axios.get('/api/customers/customerTypeValues');
+      const customerTypeValuesResponse = await api.get("/api/customers/customerTypeValues");
       setCustomerTypeValues(customerTypeValuesResponse.data);
 
-      const partnerUnitValuesResponse = await axios.get('/api/customers/partnerUnitValues');
+      const partnerUnitValuesResponse = await api.get("/api/customers/partnerUnitValues");
       setPartnerUnitValues(partnerUnitValuesResponse.data);
 
-      const userValuesResponse = await axios.get('/api/customers/userValues');
+      const userValuesResponse = await api.get("/api/customers/userValues");
       setUserValues(userValuesResponse.data);
 
-      const data = (await axios.get('/api/customers/' + currentId)).data;
+      const data = (await api.get("/api/customers/" + currentId)).data;
       useFormResult.reset(data);
 
     } catch (error: any) {
@@ -69,7 +69,7 @@ export default function CustomerEdit() {
   const updateCustomer = async (data: CustomerDTO) => {
     window.scrollTo(0, 0);
     try {
-      await axios.put('/api/customers/' + currentId, data);
+      await api.put("/api/customers/" + currentId, data);
       navigate('/customers', {
             state: {
               msgSuccess: t('customer.update.success')
