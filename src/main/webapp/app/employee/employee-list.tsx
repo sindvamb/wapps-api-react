@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EmployeeDTO } from 'app/employee/employee-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EmployeeList() {
   const { t } = useTranslation();
@@ -63,34 +66,13 @@ export default function EmployeeList() {
     <div>{t('employee.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('employee.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('employee.isApprentice.label')}</th>
-            <th scope="col" className="text-left p-2">{t('employee.customerId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('employee.company.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {employees.map((employee) => (
-          <tr key={employee.id} className="odd:bg-gray-100">
-            <td className="p-2">{employee.id}</td>
-            <td className="p-2">{employee.isApprentice?.toString()}</td>
-            <td className="p-2">{employee.customerId}</td>
-            <td className="p-2">{employee.company}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/employees/edit/' + employee.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('employee.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(employee.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('employee.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={employees}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('employee.id.label')} />
+            <Column field="isApprentice" header={t('employee.isApprentice.label')} />
+            <Column field="customerId" header={t('employee.customerId.label')} />
+            <Column field="company" header={t('employee.company.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/employees/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

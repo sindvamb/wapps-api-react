@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EventDTO } from 'app/event/event-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EventList() {
   const { t } = useTranslation();
@@ -63,42 +66,17 @@ export default function EventList() {
     <div>{t('event.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('event.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.partyPaymentDate.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.partyDate.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.timeStart.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.timeEnd.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.tentValue.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.circulatingValue.label')}</th>
-            <th scope="col" className="text-left p-2">{t('event.creatorId.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {events.map((event) => (
-          <tr key={event.id} className="odd:bg-gray-100">
-            <td className="p-2">{event.id}</td>
-            <td className="p-2">{event.partyPaymentDate}</td>
-            <td className="p-2">{event.partyDate}</td>
-            <td className="p-2">{event.timeStart}</td>
-            <td className="p-2">{event.timeEnd}</td>
-            <td className="p-2">{event.tentValue}</td>
-            <td className="p-2">{event.circulatingValue}</td>
-            <td className="p-2">{event.creatorId}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/events/edit/' + event.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('event.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(event.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('event.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={events}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('event.id.label')} />
+            <Column field="partyPaymentDate" header={t('event.partyPaymentDate.label')} />
+            <Column field="partyDate" header={t('event.partyDate.label')} />
+            <Column field="timeStart" header={t('event.timeStart.label')} />
+            <Column field="timeEnd" header={t('event.timeEnd.label')} />
+            <Column field="tentValue" header={t('event.tentValue.label')} />
+            <Column field="circulatingValue" header={t('event.circulatingValue.label')} />
+            <Column field="creatorId" header={t('event.creatorId.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/events/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

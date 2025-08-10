@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { UserDTO } from 'app/user/user-model';
 import api from 'app/services/api';
 import useDocumentTitle from 'app/common/use-document-title';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function UserList() {
   const { t } = useTranslation();
@@ -63,42 +66,17 @@ export default function UserList() {
     <div>{t('user.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('user.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.matricula.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.hasSpecialNeeds.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.isSystem.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.isCustomer.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.loginAttemps.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.passwordPolicyEnabled.label')}</th>
-            <th scope="col" className="text-left p-2">{t('user.birthdate.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {users.map((user) => (
-          <tr key={user.id} className="odd:bg-gray-100">
-            <td className="p-2">{user.id}</td>
-            <td className="p-2">{user.matricula}</td>
-            <td className="p-2">{user.hasSpecialNeeds?.toString()}</td>
-            <td className="p-2">{user.isSystem?.toString()}</td>
-            <td className="p-2">{user.isCustomer?.toString()}</td>
-            <td className="p-2">{user.loginAttemps}</td>
-            <td className="p-2">{user.passwordPolicyEnabled?.toString()}</td>
-            <td className="p-2">{user.birthdate}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/users/edit/' + user.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('user.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(user.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('user.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={users} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('user.id.label')} />
+            <Column field="matricula" header={t('user.matricula.label')} />
+            <Column field="hasSpecialNeeds" header={t('user.hasSpecialNeeds.label')} />
+            <Column field="isSystem" header={t('user.isSystem.label')} />
+            <Column field="isCustomer" header={t('user.isCustomer.label')} />
+            <Column field="loginAttemps" header={t('user.loginAttemps.label')} />
+            <Column field="passwordPolicyEnabled" header={t('user.passwordPolicyEnabled.label')} />
+            <Column field="birthdate" header={t('user.birthdate.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/users/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

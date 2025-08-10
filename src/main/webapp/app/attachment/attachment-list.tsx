@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { AttachmentDTO } from 'app/attachment/attachment-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function AttachmentList() {
   const { t } = useTranslation();
@@ -54,36 +57,14 @@ export default function AttachmentList() {
     <div>{t('attachment.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('attachment.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('attachment.size.label')}</th>
-            <th scope="col" className="text-left p-2">{t('attachment.isPublic.label')}</th>
-            <th scope="col" className="text-left p-2">{t('attachment.inCloud.label')}</th>
-            <th scope="col" className="text-left p-2">{t('attachment.ticket.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {attachments.map((attachment) => (
-          <tr key={attachment.id} className="odd:bg-gray-100">
-            <td className="p-2">{attachment.id}</td>
-            <td className="p-2">{attachment.size}</td>
-            <td className="p-2">{attachment.isPublic?.toString()}</td>
-            <td className="p-2">{attachment.inCloud?.toString()}</td>
-            <td className="p-2">{attachment.ticket}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/attachments/edit/' + attachment.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('attachment.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(attachment.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('attachment.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={attachments}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('attachment.id.label')} />
+            <Column field="size" header={t('attachment.size.label')} />
+            <Column field="isPublic" header={t('attachment.isPublic.label')} />
+            <Column field="inCloud" header={t('attachment.inCloud.label')} />
+            <Column field="ticket" header={t('attachment.ticket.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/attachments/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { MenuItemDTO } from 'app/menu-item/menu-item-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function MenuItemList() {
   const { t } = useTranslation();
@@ -63,30 +66,11 @@ export default function MenuItemList() {
     <div>{t('menuItem.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('menuItem.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('menuItem.menu.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {menuItems.map((menuItem) => (
-          <tr key={menuItem.id} className="odd:bg-gray-100">
-            <td className="p-2">{menuItem.id}</td>
-            <td className="p-2">{menuItem.menu}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/menuItems/edit/' + menuItem.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('menuItem.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(menuItem.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('menuItem.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={menuItems} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('menuItem.id.label')} />
+            <Column field="menu" header={t('menuItem.menu.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/menuItems/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

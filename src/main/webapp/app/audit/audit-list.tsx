@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { AuditDTO } from 'app/audit/audit-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function AuditList() {
   const { t } = useTranslation();
@@ -54,30 +57,11 @@ export default function AuditList() {
     <div>{t('audit.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('audit.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('audit.user.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {audits.map((audit) => (
-          <tr key={audit.id} className="odd:bg-gray-100">
-            <td className="p-2">{audit.id}</td>
-            <td className="p-2">{audit.user}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/audits/edit/' + audit.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('audit.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(audit.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('audit.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={audits}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('audit.id.label')} />
+            <Column field="user" header={t('audit.user.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/audits/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

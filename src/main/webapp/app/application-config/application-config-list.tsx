@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { ApplicationConfigDTO } from 'app/application-config/application-config-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function ApplicationConfigList() {
   const { t } = useTranslation();
@@ -54,42 +57,17 @@ export default function ApplicationConfigList() {
     <div>{t('applicationConfig.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.creatorId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.modifierId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.deleterId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.isDeleted.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.createdAt.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.updatedAt.label')}</th>
-            <th scope="col" className="text-left p-2">{t('applicationConfig.deletedAt.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {applicationConfigs.map((applicationConfig) => (
-          <tr key={applicationConfig.id} className="odd:bg-gray-100">
-            <td className="p-2">{applicationConfig.id}</td>
-            <td className="p-2">{applicationConfig.creatorId}</td>
-            <td className="p-2">{applicationConfig.modifierId}</td>
-            <td className="p-2">{applicationConfig.deleterId}</td>
-            <td className="p-2">{applicationConfig.isDeleted?.toString()}</td>
-            <td className="p-2">{applicationConfig.createdAt}</td>
-            <td className="p-2">{applicationConfig.updatedAt}</td>
-            <td className="p-2">{applicationConfig.deletedAt}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/applicationConfigs/edit/' + applicationConfig.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('applicationConfig.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(applicationConfig.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('applicationConfig.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={applicationConfigs}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('applicationConfig.id.label')} />
+            <Column field="creatorId" header={t('applicationConfig.creatorId.label')} />
+            <Column field="modifierId" header={t('applicationConfig.modifierId.label')} />
+            <Column field="deleterId" header={t('applicationConfig.deleterId.label')} />
+            <Column field="isDeleted" header={t('applicationConfig.isDeleted.label')} />
+            <Column field="createdAt" header={t('applicationConfig.createdAt.label')} />
+            <Column field="updatedAt" header={t('applicationConfig.updatedAt.label')} />
+            <Column field="deletedAt" header={t('applicationConfig.deletedAt.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/applicationConfigs/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

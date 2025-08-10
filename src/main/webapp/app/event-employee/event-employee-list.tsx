@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EventEmployeeDTO } from 'app/event-employee/event-employee-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EventEmployeeList() {
   const { t } = useTranslation();
@@ -54,34 +57,13 @@ export default function EventEmployeeList() {
     <div>{t('eventEmployee.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('eventEmployee.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventEmployee.company.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventEmployee.employee.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventEmployee.eventCustomer.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {eventEmployees.map((eventEmployee) => (
-          <tr key={eventEmployee.id} className="odd:bg-gray-100">
-            <td className="p-2">{eventEmployee.id}</td>
-            <td className="p-2">{eventEmployee.company}</td>
-            <td className="p-2">{eventEmployee.employee}</td>
-            <td className="p-2">{eventEmployee.eventCustomer}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/eventEmployees/edit/' + eventEmployee.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('eventEmployee.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(eventEmployee.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('eventEmployee.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={eventEmployees}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('eventEmployee.id.label')} />
+            <Column field="company" header={t('eventEmployee.company.label')} />
+            <Column field="employee" header={t('eventEmployee.employee.label')} />
+            <Column field="eventCustomer" header={t('eventEmployee.eventCustomer.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/eventEmployees/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

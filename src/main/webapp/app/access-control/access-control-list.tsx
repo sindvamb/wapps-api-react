@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { AccessControlDTO } from 'app/access-control/access-control-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function AccessControlList() {
   const { t } = useTranslation();
@@ -54,36 +57,14 @@ export default function AccessControlList() {
     <div>{t('accessControl.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('accessControl.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('accessControl.userId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('accessControl.connectionTime.label')}</th>
-            <th scope="col" className="text-left p-2">{t('accessControl.lastBeatTime.label')}</th>
-            <th scope="col" className="text-left p-2">{t('accessControl.dur.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {accessControls.map((accessControl) => (
-          <tr key={accessControl.id} className="odd:bg-gray-100">
-            <td className="p-2">{accessControl.id}</td>
-            <td className="p-2">{accessControl.userId}</td>
-            <td className="p-2">{accessControl.connectionTime}</td>
-            <td className="p-2">{accessControl.lastBeatTime}</td>
-            <td className="p-2">{accessControl.dur}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/accessControls/edit/' + accessControl.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('accessControl.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(accessControl.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('accessControl.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={accessControls}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('accessControl.id.label')} />
+            <Column field="userId" header={t('accessControl.userId.label')} />
+            <Column field="connectionTime" header={t('accessControl.connectionTime.label')} />
+            <Column field="lastBeatTime" header={t('accessControl.lastBeatTime.label')} />
+            <Column field="dur" header={t('accessControl.dur.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/accessControls/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

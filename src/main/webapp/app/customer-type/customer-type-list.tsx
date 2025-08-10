@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { CustomerTypeDTO } from 'app/customer-type/customer-type-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function CustomerTypeList() {
   const { t } = useTranslation();
@@ -63,28 +66,10 @@ export default function CustomerTypeList() {
     <div>{t('customerType.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('customerType.id.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {customerTypes.map((customerType) => (
-          <tr key={customerType.id} className="odd:bg-gray-100">
-            <td className="p-2">{customerType.id}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/customerTypes/edit/' + customerType.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('customerType.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(customerType.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('customerType.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={customerTypes}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('customerType.id.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/customerTypes/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

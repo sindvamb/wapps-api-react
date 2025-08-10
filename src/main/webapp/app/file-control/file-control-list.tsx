@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { FileControlDTO } from 'app/file-control/file-control-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function FileControlList() {
   const { t } = useTranslation();
@@ -63,42 +66,17 @@ export default function FileControlList() {
     <div>{t('fileControl.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('fileControl.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.fileSize.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.approved.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.company.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.dependent.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.eventCustomer.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.event.label')}</th>
-            <th scope="col" className="text-left p-2">{t('fileControl.layout.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {fileControls.map((fileControl) => (
-          <tr key={fileControl.id} className="odd:bg-gray-100">
-            <td className="p-2">{fileControl.id}</td>
-            <td className="p-2">{fileControl.fileSize}</td>
-            <td className="p-2">{fileControl.approved?.toString()}</td>
-            <td className="p-2">{fileControl.company}</td>
-            <td className="p-2">{fileControl.dependent}</td>
-            <td className="p-2">{fileControl.eventCustomer}</td>
-            <td className="p-2">{fileControl.event}</td>
-            <td className="p-2">{fileControl.layout}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/fileControls/edit/' + fileControl.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('fileControl.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(fileControl.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('fileControl.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={fileControls}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('fileControl.id.label')} />
+            <Column field="fileSize" header={t('fileControl.fileSize.label')} />
+            <Column field="approved" header={t('fileControl.approved.label')} />
+            <Column field="company" header={t('fileControl.company.label')} />
+            <Column field="dependent" header={t('fileControl.dependent.label')} />
+            <Column field="eventCustomer" header={t('fileControl.eventCustomer.label')} />
+            <Column field="event" header={t('fileControl.event.label')} />
+            <Column field="layout" header={t('fileControl.layout.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/fileControls/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

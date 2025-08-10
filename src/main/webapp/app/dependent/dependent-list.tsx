@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { DependentDTO } from 'app/dependent/dependent-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function DependentList() {
   const { t } = useTranslation();
@@ -63,30 +66,11 @@ export default function DependentList() {
     <div>{t('dependent.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('dependent.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('dependent.customer.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {dependents.map((dependent) => (
-          <tr key={dependent.id} className="odd:bg-gray-100">
-            <td className="p-2">{dependent.id}</td>
-            <td className="p-2">{dependent.customer}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/dependents/edit/' + dependent.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('dependent.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(dependent.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('dependent.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={dependents}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('dependent.id.label')} />
+            <Column field="customer" header={t('dependent.customer.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/dependents/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

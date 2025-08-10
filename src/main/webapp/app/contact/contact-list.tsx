@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { ContactDTO } from 'app/contact/contact-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function ContactList() {
   const { t } = useTranslation();
@@ -63,30 +66,11 @@ export default function ContactList() {
     <div>{t('contact.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('contact.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('contact.address.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {contacts.map((contact) => (
-          <tr key={contact.id} className="odd:bg-gray-100">
-            <td className="p-2">{contact.id}</td>
-            <td className="p-2">{contact.address}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/contacts/edit/' + contact.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('contact.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(contact.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('contact.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={contacts}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('contact.id.label')} />
+            <Column field="address" header={t('contact.address.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/contacts/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

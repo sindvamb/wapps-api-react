@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EventCustomerDTO } from 'app/event-customer/event-customer-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EventCustomerList() {
   const { t } = useTranslation();
@@ -63,36 +66,14 @@ export default function EventCustomerList() {
     <div>{t('eventCustomer.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('eventCustomer.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventCustomer.approved.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventCustomer.company.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventCustomer.customer.label')}</th>
-            <th scope="col" className="text-left p-2">{t('eventCustomer.event.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {eventCustomers.map((eventCustomer) => (
-          <tr key={eventCustomer.id} className="odd:bg-gray-100">
-            <td className="p-2">{eventCustomer.id}</td>
-            <td className="p-2">{eventCustomer.approved?.toString()}</td>
-            <td className="p-2">{eventCustomer.company}</td>
-            <td className="p-2">{eventCustomer.customer}</td>
-            <td className="p-2">{eventCustomer.event}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/eventCustomers/edit/' + eventCustomer.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('eventCustomer.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(eventCustomer.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('eventCustomer.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={eventCustomers}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('eventCustomer.id.label')} />
+            <Column field="approved" header={t('eventCustomer.approved.label')} />
+            <Column field="company" header={t('eventCustomer.company.label')} />
+            <Column field="customer" header={t('eventCustomer.customer.label')} />
+            <Column field="event" header={t('eventCustomer.event.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/eventCustomers/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

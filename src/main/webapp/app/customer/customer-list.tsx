@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { CustomerDTO } from 'app/customer/customer-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function CustomerList() {
   const { t } = useTranslation();
@@ -63,42 +66,17 @@ export default function CustomerList() {
     <div>{t('customer.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('customer.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.creatorId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.modifierId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.deleterId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.isDeleted.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.createdAt.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.updatedAt.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customer.deletedAt.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {customers.map((customer) => (
-          <tr key={customer.id} className="odd:bg-gray-100">
-            <td className="p-2">{customer.id}</td>
-            <td className="p-2">{customer.creatorId}</td>
-            <td className="p-2">{customer.modifierId}</td>
-            <td className="p-2">{customer.deleterId}</td>
-            <td className="p-2">{customer.isDeleted?.toString()}</td>
-            <td className="p-2">{customer.createdAt}</td>
-            <td className="p-2">{customer.updatedAt}</td>
-            <td className="p-2">{customer.deletedAt}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/customers/edit/' + customer.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('customer.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(customer.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('customer.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={customers}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('customer.id.label')} />
+            <Column field="creatorId" header={t('customer.creatorId.label')} />
+            <Column field="modifierId" header={t('customer.modifierId.label')} />
+            <Column field="deleterId" header={t('customer.deleterId.label')} />
+            <Column field="isDeleted" header={t('customer.isDeleted.label')} />
+            <Column field="createdAt" header={t('customer.createdAt.label')} />
+            <Column field="updatedAt" header={t('customer.updatedAt.label')} />
+            <Column field="deletedAt" header={t('customer.deletedAt.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/customers/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

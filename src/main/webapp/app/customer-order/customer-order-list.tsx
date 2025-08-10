@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { CustomerOrderDTO } from 'app/customer-order/customer-order-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function CustomerOrderList() {
   const { t } = useTranslation();
@@ -54,42 +57,17 @@ export default function CustomerOrderList() {
     <div>{t('customerOrder.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('customerOrder.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.isWapps.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.isPresidency.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.isClient.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.isDirector.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.isManager.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.creatorId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('customerOrder.modifierId.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {customerOrders.map((customerOrder) => (
-          <tr key={customerOrder.id} className="odd:bg-gray-100">
-            <td className="p-2">{customerOrder.id}</td>
-            <td className="p-2">{customerOrder.isWapps?.toString()}</td>
-            <td className="p-2">{customerOrder.isPresidency?.toString()}</td>
-            <td className="p-2">{customerOrder.isClient?.toString()}</td>
-            <td className="p-2">{customerOrder.isDirector?.toString()}</td>
-            <td className="p-2">{customerOrder.isManager?.toString()}</td>
-            <td className="p-2">{customerOrder.creatorId}</td>
-            <td className="p-2">{customerOrder.modifierId}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/customerOrders/edit/' + customerOrder.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('customerOrder.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(customerOrder.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('customerOrder.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={customerOrders}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('customerOrder.id.label')} />
+            <Column field="isWapps" header={t('customerOrder.isWapps.label')} />
+            <Column field="isPresidency" header={t('customerOrder.isPresidency.label')} />
+            <Column field="isClient" header={t('customerOrder.isClient.label')} />
+            <Column field="isDirector" header={t('customerOrder.isDirector.label')} />
+            <Column field="isManager" header={t('customerOrder.isManager.label')} />
+            <Column field="creatorId" header={t('customerOrder.creatorId.label')} />
+            <Column field="modifierId" header={t('customerOrder.modifierId.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/customerOrders/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

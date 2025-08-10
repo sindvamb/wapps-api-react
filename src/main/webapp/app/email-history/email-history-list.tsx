@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EmailHistoryDTO } from 'app/email-history/email-history-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EmailHistoryList() {
   const { t } = useTranslation();
@@ -54,34 +57,13 @@ export default function EmailHistoryList() {
     <div>{t('emailHistory.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('emailHistory.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('emailHistory.userId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('emailHistory.isSuccess.label')}</th>
-            <th scope="col" className="text-left p-2">{t('emailHistory.date.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {emailHistories.map((emailHistory) => (
-          <tr key={emailHistory.id} className="odd:bg-gray-100">
-            <td className="p-2">{emailHistory.id}</td>
-            <td className="p-2">{emailHistory.userId}</td>
-            <td className="p-2">{emailHistory.isSuccess?.toString()}</td>
-            <td className="p-2">{emailHistory.date}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/emailHistories/edit/' + emailHistory.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('emailHistory.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(emailHistory.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('emailHistory.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={emailHistories}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('emailHistory.id.label')} />
+            <Column field="userId" header={t('emailHistory.userId.label')} />
+            <Column field="isSuccess" header={t('emailHistory.isSuccess.label')} />
+            <Column field="date" header={t('emailHistory.date.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/emailHistories/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);

@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { EquipamentDTO } from 'app/equipament/equipament-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function EquipamentList() {
   const { t } = useTranslation();
@@ -63,32 +66,12 @@ export default function EquipamentList() {
     <div>{t('equipament.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('equipament.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('equipament.customerId.label')}</th>
-            <th scope="col" className="text-left p-2">{t('equipament.company.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {equipaments.map((equipament) => (
-          <tr key={equipament.id} className="odd:bg-gray-100">
-            <td className="p-2">{equipament.id}</td>
-            <td className="p-2">{equipament.customerId}</td>
-            <td className="p-2">{equipament.company}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/equipaments/edit/' + equipament.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('equipament.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(equipament.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('equipament.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+        <DataTable value={equipaments}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id" header={t('equipament.id.label')} />
+            <Column field="customerId" header={t('equipament.customerId.label')} />
+            <Column field="company" header={t('equipament.company.label')} />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/equipaments/edit/')(rowData)} />
+        </DataTable>
     </div>
     )}
   </>);
