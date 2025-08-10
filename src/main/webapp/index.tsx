@@ -9,6 +9,9 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import App from "./app/app";
 
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+
+
 i18n
   .use(initReactI18next)
   .init({

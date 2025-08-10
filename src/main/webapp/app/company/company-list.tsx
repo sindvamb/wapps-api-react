@@ -5,6 +5,9 @@ import { handleServerError } from 'app/common/utils';
 import { CompanyDTO } from 'app/company/company-model';
 import useDocumentTitle from 'app/common/use-document-title';
 import api from 'app/services/api';
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+import {createActionTemplate} from "app/common/data-templates";
 
 export default function CompanyList() {
   const { t } = useTranslation();
@@ -17,6 +20,7 @@ export default function CompanyList() {
     try {
       const response = await api.get("/api/companies");
       setCompanies(response.data);
+      console.log(response.data[0])
     } catch (error: any) {
       handleServerError(error, navigate);
     }
@@ -63,42 +67,13 @@ export default function CompanyList() {
     <div>{t('company.list.empty')}</div>
     ) : (
     <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th scope="col" className="text-left p-2">{t('company.id.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.foundationDate.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.size.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.status.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.hasGovBrRegistration.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.hasDigitalCertificate.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.hasLogo.label')}</th>
-            <th scope="col" className="text-left p-2">{t('company.hasVisualIdentity.label')}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="border-t-2 border-black">
-          {companies.map((company) => (
-          <tr key={company.id} className="odd:bg-gray-100">
-            <td className="p-2">{company.id}</td>
-            <td className="p-2">{company.foundationDate}</td>
-            <td className="p-2">{company.size}</td>
-            <td className="p-2">{company.status}</td>
-            <td className="p-2">{company.hasGovBrRegistration?.toString()}</td>
-            <td className="p-2">{company.hasDigitalCertificate?.toString()}</td>
-            <td className="p-2">{company.hasLogo?.toString()}</td>
-            <td className="p-2">{company.hasVisualIdentity?.toString()}</td>
-            <td className="p-2">
-              <div className="float-right whitespace-nowrap">
-                <Link to={'/companies/edit/' + company.id} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm">{t('company.list.edit')}</Link>
-                <span> </span>
-                <button type="button" onClick={() => confirmDelete(company.id!)} className="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer">{t('company.list.delete')}</button>
-              </div>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
+
+        <DataTable value={companies}  paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+            <Column field="corporateName" header="Razão Social" />
+            <Column field="cpfCnpj" header="CPF ou CNPJ" />
+            <Column body={(rowData) => createActionTemplate(confirmDelete, '/companies/edit/')(rowData)} />
+        </DataTable>
+
     </div>
     )}
   </>);

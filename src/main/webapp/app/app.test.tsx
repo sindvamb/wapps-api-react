@@ -1,9 +1,13 @@
 import React from 'react';
-import { act } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import App from './app';
 
-
-test('should create the app', async () => {
-  const { container } = await act(async () => renderWithRouter(<App/>));
+test('should create the app', () => {
+  const { container } = render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
   expect(container).toBeTruthy();
 });
