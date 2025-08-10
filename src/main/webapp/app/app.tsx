@@ -2,7 +2,6 @@ import React from 'react';
 import { PrimeReactProvider } from 'primereact/api';
 import ErrorBoundary from './error/error-boundary';
 import AppRoutes from './routes';
-import { LayoutProvider } from './layout/context/layoutcontext';
 import Layout from './layout/layout';
 
 import 'primereact/resources/primereact.css';
@@ -17,13 +16,11 @@ import './layout/styles/layout.css';
 export default function App() {
     return (
         <PrimeReactProvider>
-            <LayoutProvider>
-                <Layout>
-                    <ErrorBoundary>
-                        <AppRoutes />
-                    </ErrorBoundary>
-                </Layout>
-            </LayoutProvider>
+            <Layout>
+                <ErrorBoundary>
+                    <AppRoutes />
+                </ErrorBoundary>
+            </Layout>
         </PrimeReactProvider>
     );
 }
