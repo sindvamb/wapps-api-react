@@ -1,0 +1,28 @@
+[dir="rtl"] {
+    .layout-topbar {
+        .layout-topbar-logo {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        .layout-topbar-menu {
+            margin: 0 auto 0 0;
+        }
+    }
+
+    .layout-sidebar {
+        left: auto;
+        right: 2rem;
+    }
+
+    .layout-main-container {
+        padding: 7rem 4rem 2rem 2rem;
+    }
+
+    .layout-menu {
+        .layout-submenu-toggler {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+}

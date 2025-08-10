@@ -9,6 +9,8 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import App from "./app/app";
 
+import "primereact/resources/primereact.min.css";
+import "primeflex/primeflex.css";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 
