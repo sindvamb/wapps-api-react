@@ -3,10 +3,11 @@ export interface AppMenuBaseItem {
     label: string;
     icon?: string;
     to?: string;
-    items?: AppMenuBaseItem[];
+    items?: AppMenuItem[];
     disabled?: boolean;
     visible?: boolean;
     target?: string;
+    badge?: string | number;
     command?: (e: { originalEvent: any, item: any }) => void;
 }
 

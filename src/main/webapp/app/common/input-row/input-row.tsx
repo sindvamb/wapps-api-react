@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { UseFormReturn } from 'react-hook-form';
 import InputErrors from 'app/common/input-row/input-errors';
 import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
 
 
 export default function InputRow({ useFormResult, object, field, type = 'text',
