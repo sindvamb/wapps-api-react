@@ -64,14 +64,7 @@ module.exports = (env, argv) => ({
             }
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('@tailwindcss/postcss')
-                ]
-              }
-            }
+            loader: 'postcss-loader'
           }
         ]
       },
